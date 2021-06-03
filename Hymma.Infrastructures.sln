@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Infrastructures.Dxf", "Hymma.Infrastructures.Dxf\Hymma.Infrastructures.Dxf.csproj", "{EE95FC42-9EB4-4F17-8201-24030336AE80}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Infrastructures.Math", "Hymma.Infrastructures.Math\Hymma.Infrastructures.Math.csproj", "{618D4960-3D90-4D48-B219-CA79BAC1A584}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Infrastructures.StringExtensions", "Text\Hymma.Infrastructures.StringExtensions.csproj", "{24AA6A2E-900D-4ADD-AC78-E92D6D0BF168}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE95FC42-9EB4-4F17-8201-24030336AE80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE95FC42-9EB4-4F17-8201-24030336AE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE95FC42-9EB4-4F17-8201-24030336AE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE95FC42-9EB4-4F17-8201-24030336AE80}.Release|Any CPU.Build.0 = Release|Any CPU
 		{618D4960-3D90-4D48-B219-CA79BAC1A584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{618D4960-3D90-4D48-B219-CA79BAC1A584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{618D4960-3D90-4D48-B219-CA79BAC1A584}.Release|Any CPU.ActiveCfg = Release|Any CPU
