@@ -164,7 +164,7 @@ namespace Hymma.Mathematics
         /// <param name="v1">first vector</param>
         /// <param name="v2">second vector</param>
         /// <returns><see cref="Vector"/> that is v1+v2</returns>
-        public static Vector operator +(Vector v1, Vector v2)
+        public static Vector operator + (Vector v1, Vector v2)
         {
             //move v2 to the end of first vector
             var v2moved = v2.From(v1.End);

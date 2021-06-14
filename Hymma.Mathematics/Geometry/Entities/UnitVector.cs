@@ -11,16 +11,26 @@
         /// <param name="vector"></param>
         public UnitVector(Vector vector) : base(vector.Start, vector.End)
         {
-            //move this vector to origin
-            var translatedVector = vector.From(new Origin());
+            //get srat coords
+            var x1 = vector.Start.X;
+            var y1 = vector.Start.Y;
+            var z1 = vector.Start.Z;
+            
+            //get endvector
+            var x2 = vector.End.X;
+            var y2 = vector.End.Y;
+            var z2 = vector.End.Z;
+
+            //get a new vector that starts from origin
+            var vectorFromOrigin  = new Vector(new Point(x2 - x1, y2 - y1, z2 - z1));
 
             //get its length
-            var length = translatedVector.GetMagnitude();
+            var length = vectorFromOrigin.GetMagnitude();
 
             //get coordinates of the unit vector end point
-            var x = translatedVector.End.X / length;
-            var y = translatedVector.End.Y / length;
-            var z = translatedVector.End.Z / length;
+            var x = vectorFromOrigin.End.X / length;
+            var y = vectorFromOrigin.End.Y / length;
+            var z = vectorFromOrigin.End.Z / length;
 
             //update this unit vector start and end points
             Start = new Origin();
