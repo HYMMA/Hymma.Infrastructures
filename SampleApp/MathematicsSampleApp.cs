@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SampleApp
 {
-    class Program
+    class MathematicsSampleApp
     {
         static void Main(string[] args)
         {
