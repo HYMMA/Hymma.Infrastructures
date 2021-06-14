@@ -1,8 +1,10 @@
 ﻿using static System.Math;
 
-namespace Hymma.Infrastructures.Math
+namespace Hymma.Mathematics
 {
-
+    /// <summary>
+    /// utities and tools for mathematics 
+    /// </summary>
     public static class MathUtils
     {
         /// <summary>
@@ -56,7 +58,21 @@ namespace Hymma.Infrastructures.Math
             }
         }
 
-
+        //public static bool VectorsAreEqual(double[] varVec1, double[] varVec2)
+        //{
+        //    var unit2 = GetUnitVector(varVec2);
+        //    var unit1 = GetUnitVector(varVec1);
+        //    var dotProduct = GetDotProductOfVectors(unit1, unit2);
+        //    return AlmostEqual(1E-10, dotProduct, 1);
+        //}
+        
+        //public static double GetDistance(double[] vector1, double[] vector2)
+        //{
+        //    var x = vector1[0] - vector2[0];
+        //    var y = vector1[1] - vector2[1];
+        //    var z = vector1[2] - vector2[2];
+        //    return Sqrt(x * x + y * y + z * z);
+        //}
 
         /// <summary>
         /// determine if two numbers are in the same range of each other<br/>
@@ -70,5 +86,6 @@ namespace Hymma.Infrastructures.Math
         {
             return Abs(num1 - num2) < tolerance;
         }
+
     }
 }

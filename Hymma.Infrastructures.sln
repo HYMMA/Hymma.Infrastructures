@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Infrastructures.Math"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Infrastructures.StringExtensions", "Text\Hymma.Infrastructures.StringExtensions.csproj", "{24AA6A2E-900D-4ADD-AC78-E92D6D0BF168}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Mathematics", "Hymma.Mathematics\Hymma.Mathematics.csproj", "{96BD15F0-0AF7-4791-8214-2E720E5398CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{24AA6A2E-900D-4ADD-AC78-E92D6D0BF168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24AA6A2E-900D-4ADD-AC78-E92D6D0BF168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24AA6A2E-900D-4ADD-AC78-E92D6D0BF168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
