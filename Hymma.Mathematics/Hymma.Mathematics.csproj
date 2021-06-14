@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\ICalculator.cs" />
     <Compile Include="Geometry\Entities\UnitVector.cs" />
     <Compile Include="Geometry\Tools\MathUtils.cs" />
     <Compile Include="Geometry\Core\IPoint.cs" />
