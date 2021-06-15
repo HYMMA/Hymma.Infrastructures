@@ -35,11 +35,12 @@ namespace Hymma.Mathematics
         /// <param name="direction"></param>
         /// <param name="magnitude"></param>
         public Vector(IPoint start, UnitVector direction, double magnitude) :
-            this(start, new Point(magnitude * direction.End.X, magnitude * direction.End.Y, magnitude * direction.End.Z))
+            this(start, new Point(magnitude * direction.End.X, 
+                magnitude * direction.End.Y, 
+                magnitude * direction.End.Z))
         {
 
         }
-
 
         #endregion
 
@@ -149,10 +150,10 @@ namespace Hymma.Mathematics
         public static Vector operator *(Vector vector, double factor)
         {
             var x1 = vector.Start.X * factor;
-            var y1 = vector.Start.Z * factor;
+            var y1 = vector.Start.Y * factor;
             var z1 = vector.Start.Z * factor;
             var x2 = vector.End.X * factor;
-            var y2 = vector.End.Z * factor;
+            var y2 = vector.End.Y * factor;
             var z2 = vector.End.Z * factor;
 
             return new Vector(new Point(x1, y1, z1), new Point(x2, y2, z2));
@@ -229,26 +230,6 @@ namespace Hymma.Mathematics
             var zt = x1 * y2 - y1 * x2;
             return new Vector(new Point(xt, yt, zt));
         }
-
-        ///// <summary>
-        ///// a representaiton of this vector if started from <see cref="Origin"/>
-        ///// </summary>
-        ///// <returns><see cref="Vector"/> from <see cref="Origin"/></returns>
-        ////public Vector FromOrigin()
-        ////{
-        ////    //get srat coords
-        ////    var x1 = Start.X;
-        ////    var y1 = Start.Y;
-        ////    var z1 = Start.Z;
-
-        ////    //get end
-        ////    var x2 = End.X;
-        ////    var y2 = End.Y;
-        ////    var z2 = End.Z;
-
-        ////    //return a new vector that starts from origin
-        ////    return new Vector(new Point(x2 - x1, y2 - y1, z2 - z1));
-        ////}
 
         /// <summary>
         /// get a translated version of this vector 

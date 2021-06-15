@@ -12,14 +12,14 @@
         public UnitVector(Vector vector) : base(vector.Start, vector.End)
         {
             //get srat coords
-            var x1 = vector.Start.X;
-            var y1 = vector.Start.Y;
-            var z1 = vector.Start.Z;
+            var x1 = Start.X;
+            var y1 = Start.Y;
+            var z1 = Start.Z;
             
             //get endvector
-            var x2 = vector.End.X;
-            var y2 = vector.End.Y;
-            var z2 = vector.End.Z;
+            var x2 = End.X;
+            var y2 = End.Y;
+            var z2 = End.Z;
 
             //get a new vector that starts from origin
             var vectorFromOrigin  = new Vector(new Point(x2 - x1, y2 - y1, z2 - z1));
