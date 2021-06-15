@@ -36,5 +36,14 @@
             Start = new Origin();
             End = new Point(x, y, z);
         }
+
+        /// <summary>
+        /// unit vector of a unit vector is itself
+        /// </summary>
+        /// <returns></returns>
+        public override UnitVector GetUnitVector()
+        {
+            return this;
+        }
     }
 }

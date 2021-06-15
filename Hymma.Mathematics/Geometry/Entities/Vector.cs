@@ -35,9 +35,9 @@ namespace Hymma.Mathematics
         /// <param name="direction"></param>
         /// <param name="magnitude"></param>
         public Vector(IPoint start, UnitVector direction, double magnitude) :
-            this(start, new Point(magnitude * direction.End.X, 
-                magnitude * direction.End.Y, 
-                magnitude * direction.End.Z))
+            this(start, new Point(magnitude * direction.End.X + start.X,
+                magnitude * direction.End.Y + start.Y,
+                magnitude * direction.End.Z + start.Z))
         {
 
         }
@@ -65,12 +65,12 @@ namespace Hymma.Mathematics
         {
             if (object.ReferenceEquals(this, other)) return true;
 
-            if (other == null) return false;
+            if (other is null) return false;
 
             //check values
             return
-                this.Start == other.Start &&
-                this.End == other.End;
+                (Point)this.Start == (Point)other.Start &&
+                (Point)this.End == (Point)other.End;
         }
 
         /// <summary>
@@ -83,8 +83,8 @@ namespace Hymma.Mathematics
         {
             if (object.ReferenceEquals(v1, v2)) return true;
             return
-                v1.Start == v2.Start &&
-                v1.End == v2.End;
+                (Point)v1.Start == (Point)v2.Start &&
+                (Point)v1.End == (Point)v2.End;
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace Hymma.Mathematics
         {
             if (object.ReferenceEquals(v1, v2)) return false;
             return
-                v1.Start != v2.Start &&
-                v1.End != v2.End;
+                (Point)v1.Start != (Point)v2.Start &&
+                (Point)v1.End != (Point)v2.End;
         }
 
         /// <summary>
@@ -109,9 +109,9 @@ namespace Hymma.Mathematics
         public override bool Equals(object obj)
         {
             var vector = obj as Vector;
-            if (vector != null)
-                return Equals(vector);
-            return false;
+            if (vector is null)
+                return false;
+            return Equals(vector);
         }
 
         /// <summary>
@@ -165,22 +165,13 @@ namespace Hymma.Mathematics
         /// <param name="v1">first vector</param>
         /// <param name="v2">second vector</param>
         /// <returns><see cref="Vector"/> that is v1+v2</returns>
-        public static Vector operator + (Vector v1, Vector v2)
+        public static Vector operator +(Vector v1, Vector v2)
         {
             //move v2 to the end of first vector
             var v2moved = v2.From(v1.End);
 
-            //add coordinaiton of start and end points ...
-            var x1 = v1.Start.X + v2moved.Start.X;
-            var y1 = v1.Start.Y + v2moved.Start.Y;
-            var z1 = v1.Start.Z + v2moved.Start.Z;
-
-            var x2 = v1.End.X + v2moved.End.X;
-            var y2 = v1.End.Y + v2moved.End.Y;
-            var z2 = v1.End.Z + v2moved.End.Z;
-
-            //make a new vector with this new coordinations
-            return new Vector(new Point(x1, y1, z1), new Point(x2, y2, z2));
+            //make a new vector that start from first vector and ends in the v2moved
+            return new Vector(v1.Start, v2moved.End);
         }
         #endregion
 
@@ -238,6 +229,7 @@ namespace Hymma.Mathematics
         /// <returns>a new <see cref="Vector"/> from specified point with the same direction and magnitude as this one</returns>
         public Vector From(IPoint point)
         {
+            //redraw this vector from the point specified
             return new Vector(point, this.GetUnitVector(), this.GetMagnitude());
         }
 
@@ -269,7 +261,7 @@ namespace Hymma.Mathematics
         /// get direction of this vector in the form of a <see cref="UnitVector"/>
         /// </summary>
         /// <returns><see cref="UnitVector"/> with the magnitude of 1 which shows the direction of this <see cref="Vector"/></returns>
-        public UnitVector GetUnitVector()
+        public virtual UnitVector GetUnitVector()
         {
             return new UnitVector(this);
         }
@@ -283,10 +275,11 @@ namespace Hymma.Mathematics
         public bool IsAlmosEqualTo(Vector vector, double tolerance = 1E-10)
         {
             var diff = this - vector;
+            Math.Round(this.Start.X,)
             return MathUtils.AlmostEqual(tolerance, 0, diff.GetMagnitude());
         }
         #endregion
-        
+
         ///<summary> get coordinaitons as string in angle brackets
         ///</summary>
         /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>

@@ -134,6 +134,19 @@ namespace Hymma.Mathematics
         }
         #endregion
 
+        #region operators -
+
+        /// <summary>
+        /// get  a - b
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns><see cref="Point"/> with coordinates that are result of subtraction between a and b</returns>
+        public static Point operator - (Point a, Point b)
+        {
+            return new Point(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        }
+        #endregion
         /// <returns>({X} , {Y} , {Z})</returns>
         public override string ToString()
         {
