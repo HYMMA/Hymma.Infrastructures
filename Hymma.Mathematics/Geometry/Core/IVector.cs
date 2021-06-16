@@ -16,5 +16,6 @@ namespace Hymma.Mathematics
         /// the point this vector points to
         /// </summary>
         IPoint End { get; set; }
+
     }
 }

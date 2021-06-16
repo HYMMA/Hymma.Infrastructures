@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace Hymma.Mathematics
 {
     /// <summary>
@@ -147,6 +146,44 @@ namespace Hymma.Mathematics
             return new Point(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
         #endregion
+
+        #region indexer
+        /// <summary>
+        ///     Gets or sets the value of the coordinate at the specified index.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns>The value of the coordinate at the specified index.</returns>
+        public double this[uint index]
+        {
+            get
+            {
+                switch (index)
+                {
+                    case 0:
+                        return X;
+                    case 1:
+                        return Y;
+                    default:
+                        throw new IndexOutOfRangeException("The index must be between 0 and 1.");
+                }
+            }
+            set
+            {
+                switch (index)
+                {
+                    case 0:
+                        X = value;
+                        break;
+                    case 1:
+                        Y = value;
+                        break;
+                    default:
+                        throw new IndexOutOfRangeException("The index must be between 0 and 1.");
+                }
+            }
+        }
+        #endregion
+
         /// <returns>({X} , {Y} , {Z})</returns>
         public override string ToString()
         {

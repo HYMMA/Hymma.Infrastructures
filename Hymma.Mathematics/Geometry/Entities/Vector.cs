@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Globalization;
+using System.Text;
 
 namespace Hymma.Mathematics
 {
     /// <summary>
-    /// a vector in cartesian coordinate system
+    /// a vector in metric cartesian coordinate system
     /// </summary>
-    public class Vector : IVector, IEquatable<Vector>
+    public class Vector : IVector, IEquatable<Vector>, IFormattable
     {
         #region constructors
         /// <summary>
@@ -175,6 +177,7 @@ namespace Hymma.Mathematics
         }
         #endregion
 
+
         #region Algebraic Methodes
 
 
@@ -270,14 +273,13 @@ namespace Hymma.Mathematics
         /// determines if this vector is almost equal to another disregarding tiny differences in thier direction and size
         /// </summary>
         /// <param name="vector">another vector to compare this one against</param>
-        /// <param name="tolerance">the threshold to allow differences withing</param>
+        /// <param name="tolerance">tolerance of acceptable deviation</param>
         /// <returns>true if two vectors are almost equal and false otherwise</returns>
-        public bool IsAlmosEqualTo(Vector vector, double tolerance = 1E-10)
+        public bool AlmostEquals(Vector vector, double tolerance = 1E-6)
         {
-            var thisUnit = GetUnitVector();
-            var thatUnit = vector.GetUnitVector();
-            var criterion = thisUnit.DotProductWith(thatUnit);
-            return MathUtils.AlmostEqual(tolerance, 1, criterion);
+            //get distance between the heads once two vectors are drawn from same point
+            double diff = (this - vector).GetMagnitude();
+            return MathUtils.NumbersAreAlmostEqual(tolerance, diff, 0);
         }
         #endregion
 
@@ -286,7 +288,47 @@ namespace Hymma.Mathematics
         /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>
         public override string ToString()
         {
-            return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
+            return ToString("G", CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// return value in string using <see cref="CultureInfo.CurrentCulture"/>
+        /// </summary>
+        /// <param name="unit">the unit to convet to. Defualt is meter</param>
+        /// <returns></returns>
+        public string ToString(string unit)
+        {
+            return this.ToString(unit, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// return value in string an convert the unit of vector
+        /// </summary>
+        /// <param name="unit">the unit to convet to. Defualt is meter</param>
+        /// <param name="provider">the <see cref="CultureInfo"/> to format the string into</param>
+        /// <returns></returns>
+        public string ToString(string unit, IFormatProvider provider)
+        {
+            if (String.IsNullOrEmpty(unit)) unit = "G";
+            if (provider == null) provider = CultureInfo.CurrentCulture;
+
+            switch (unit.ToUpperInvariant())
+            {
+                case "G":
+                case "M":
+                    return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
+                default:
+                    var sb = new StringBuilder();
+                    sb.AppendFormat("< {0} , ", MathUtils.ConvertLengthUnit(Start.X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Y, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Z, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.Y, unit).ToString(provider))
+                        .AppendFormat("{0} >", MathUtils.ConvertLengthUnit(End.Z, unit).ToString(provider));
+
+                    return sb.ToString();
+            }
+            throw new NotImplementedException();
         }
     }
 }
