@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Globalization;
+using System.Text;
 
 namespace Hymma.Mathematics
 {
     /// <summary>
     /// a point in cartesian coordinate system
     /// </summary>
-    public class Point : IPoint, IEquatable<Point> , IFormattable
+    public class Point : IPoint, IEquatable<Point>, IFormattable
     {
         #region constructors
 
@@ -60,7 +61,7 @@ namespace Hymma.Mathematics
 
         #region Equitable implimentation
         //https://www.codeproject.com/Articles/20592/Implementing-IEquatable-Properly
-        
+
         /// <summary>
         /// determines if this point is equal to another one
         /// </summary>
@@ -143,7 +144,7 @@ namespace Hymma.Mathematics
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns><see cref="Point"/> with coordinates that are result of subtraction between a and b</returns>
-        public static Point operator - (Point a, Point b)
+        public static Point operator -(Point a, Point b)
         {
             return new Point(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
@@ -186,16 +187,48 @@ namespace Hymma.Mathematics
         }
         #endregion
 
-        /// <returns>({X} , {Y} , {Z})</returns>
+        /// <summary>
+        /// return the string representation of this point in Meter
+        /// </summary>
+        /// <returns>( {X} , {Y} , {Z} )</returns>
         public override string ToString()
         {
             return ToString("G", CultureInfo.CurrentCulture);
-            return $"({X} , {Y} , {Z})";
         }
 
-        public string ToString(string format, IFormatProvider formatProvider)
+        /// <summary>
+        /// return the string representation of this point in <see cref="CultureInfo.CurrentCulture"/>
+        /// </summary>
+        /// <param name="unit">unit to convert value from meter to</param>
+        /// <returns></returns>
+        public string ToString(string unit)
         {
-            throw new NotImplementedException();
+            return this.ToString(unit, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// returns a string representation of this point in unit and culture provided
+        /// </summary>
+        /// <param name="unit">unit to convert value from meter to</param>
+        /// <param name="provider">the <see cref="CultureInfo"/> to format the string into</param>
+        /// <returns></returns>
+        public string ToString(string unit, IFormatProvider provider)
+        {
+            if (String.IsNullOrEmpty(unit)) unit = "G";
+            if (provider == null) provider = CultureInfo.CurrentCulture;
+
+            switch (unit.ToUpperInvariant())
+            {
+                case "G":
+                case "M":
+                    return $"({X} , {Y} , {Z})";
+                default:
+                    var sb = new StringBuilder();
+                    sb.AppendFormat("( {0} , ", MathUtils.ConvertLengthUnit(X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Y, unit).ToString(provider))
+                        .AppendFormat("{0} )", MathUtils.ConvertLengthUnit(Z, unit).ToString(provider));
+                    return sb.ToString();
+            }
         }
     }
 }
