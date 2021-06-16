@@ -127,6 +127,57 @@ namespace Hymma.Mathematics
 
         #endregion
 
+        #region Iformattable
+
+        ///<summary> get coordinaitons as string in angle brackets
+        ///</summary>
+        /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>
+        public override string ToString()
+        {
+            return ToString("G", CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// return value in string using <see cref="CultureInfo.CurrentCulture"/>
+        /// </summary>
+        /// <param name="unit">the unit to convet to. Defualt is meter</param>
+        /// <returns></returns>
+        public string ToString(string unit)
+        {
+            return this.ToString(unit, CultureInfo.CurrentCulture);
+        }
+
+        /// <summary>
+        /// return value in string an convert the unit of vector
+        /// </summary>
+        /// <param name="unit">the unit to convet to. Defualt is meter</param>
+        /// <param name="provider">the <see cref="CultureInfo"/> to format the string into</param>
+        /// <returns></returns>
+        public string ToString(string unit, IFormatProvider provider)
+        {
+            if (String.IsNullOrEmpty(unit)) unit = "G";
+            if (provider == null) provider = CultureInfo.CurrentCulture;
+
+            switch (unit.ToUpperInvariant())
+            {
+                case "G":
+                case "M":
+                    return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
+                default:
+                    var sb = new StringBuilder();
+                    sb.AppendFormat("< {0} , ", MathUtils.ConvertLengthUnit(Start.X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Y, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Z, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.Y, unit).ToString(provider))
+                        .AppendFormat("{0} >", MathUtils.ConvertLengthUnit(End.Z, unit).ToString(provider));
+
+                    return sb.ToString();
+            }
+            throw new NotImplementedException();
+        }
+        #endregion
+
         #region operators - + *
 
 
@@ -176,7 +227,6 @@ namespace Hymma.Mathematics
             return new Vector(v1.Start, v2moved.End);
         }
         #endregion
-
 
         #region Algebraic Methodes
 
@@ -282,53 +332,5 @@ namespace Hymma.Mathematics
             return MathUtils.NumbersAreAlmostEqual(tolerance, diff, 0);
         }
         #endregion
-
-        ///<summary> get coordinaitons as string in angle brackets
-        ///</summary>
-        /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>
-        public override string ToString()
-        {
-            return ToString("G", CultureInfo.CurrentCulture);
-        }
-
-        /// <summary>
-        /// return value in string using <see cref="CultureInfo.CurrentCulture"/>
-        /// </summary>
-        /// <param name="unit">the unit to convet to. Defualt is meter</param>
-        /// <returns></returns>
-        public string ToString(string unit)
-        {
-            return this.ToString(unit, CultureInfo.CurrentCulture);
-        }
-
-        /// <summary>
-        /// return value in string an convert the unit of vector
-        /// </summary>
-        /// <param name="unit">the unit to convet to. Defualt is meter</param>
-        /// <param name="provider">the <see cref="CultureInfo"/> to format the string into</param>
-        /// <returns></returns>
-        public string ToString(string unit, IFormatProvider provider)
-        {
-            if (String.IsNullOrEmpty(unit)) unit = "G";
-            if (provider == null) provider = CultureInfo.CurrentCulture;
-
-            switch (unit.ToUpperInvariant())
-            {
-                case "G":
-                case "M":
-                    return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
-                default:
-                    var sb = new StringBuilder();
-                    sb.AppendFormat("< {0} , ", MathUtils.ConvertLengthUnit(Start.X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Y, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Z, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.Y, unit).ToString(provider))
-                        .AppendFormat("{0} >", MathUtils.ConvertLengthUnit(End.Z, unit).ToString(provider));
-
-                    return sb.ToString();
-            }
-            throw new NotImplementedException();
-        }
     }
 }

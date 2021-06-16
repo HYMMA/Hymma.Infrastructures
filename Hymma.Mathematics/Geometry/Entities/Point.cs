@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Globalization;
+
 namespace Hymma.Mathematics
 {
     /// <summary>
     /// a point in cartesian coordinate system
     /// </summary>
-    public class Point : IPoint, IEquatable<Point>
+    public class Point : IPoint, IEquatable<Point> , IFormattable
     {
         #region constructors
 
@@ -187,7 +189,13 @@ namespace Hymma.Mathematics
         /// <returns>({X} , {Y} , {Z})</returns>
         public override string ToString()
         {
+            return ToString("G", CultureInfo.CurrentCulture);
             return $"({X} , {Y} , {Z})";
+        }
+
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            throw new NotImplementedException();
         }
     }
 }

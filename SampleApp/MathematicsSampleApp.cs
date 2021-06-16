@@ -1,5 +1,6 @@
 ﻿using Hymma.Mathematics;
 using System;
+using System.Globalization;
 
 namespace SampleApp
 {
@@ -7,13 +8,14 @@ namespace SampleApp
     {
         static void Main(string[] args)
         {
-            var v1 = new Vector(new Point(3, 3, 0));
+            var v1 = new Vector(new Point(3, 3.005, 0), new Point(1,.5,3));
             var v2 = new Vector(new Point(4, 4, 0));
             var v3 = new Vector(new Point(4, 4, 0));
             var v4 = new Vector(new Point(3.999, 3.999, 0));
             object objV3 = v3;
             Console.WriteLine(string.Format("v1 in meter {0}", v1));
             Console.WriteLine(string.Format("v1 in milllimeters is {0:mm}",v1));
+            Console.WriteLine("v1 in milllimeters in Iranian is "+v1.ToString("mm",new CultureInfo("fa-IR")));
             Console.WriteLine(string.Format("v1 in inches unit is {0:in}",v1));
             Console.WriteLine($"v2 is {v2}");
             Console.WriteLine($"v3 is {v3}");
