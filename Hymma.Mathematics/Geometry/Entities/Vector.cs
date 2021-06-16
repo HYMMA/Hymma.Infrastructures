@@ -174,7 +174,6 @@ namespace Hymma.Mathematics
 
                     return sb.ToString();
             }
-            throw new NotImplementedException();
         }
         #endregion
 
