@@ -165,12 +165,12 @@ namespace Hymma.Mathematics
                     return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
                 default:
                     var sb = new StringBuilder();
-                    sb.AppendFormat("< {0} , ", MathUtils.ConvertLengthUnit(Start.X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Y, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Start.Z, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(End.Y, unit).ToString(provider))
-                        .AppendFormat("{0} >", MathUtils.ConvertLengthUnit(End.Z, unit).ToString(provider));
+                    sb.AppendFormat("< {0} , ", Physics.ConvertLengthUnit(Start.X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(Start.Y, unit).ToString(provider))
+                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(Start.Z, unit).ToString(provider))
+                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(End.X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(End.Y, unit).ToString(provider))
+                        .AppendFormat("{0} >", Physics.ConvertLengthUnit(End.Z, unit).ToString(provider));
 
                     return sb.ToString();
             }

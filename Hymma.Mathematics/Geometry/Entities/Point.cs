@@ -224,9 +224,9 @@ namespace Hymma.Mathematics
                     return $"({X} , {Y} , {Z})";
                 default:
                     var sb = new StringBuilder();
-                    sb.AppendFormat("( {0} , ", MathUtils.ConvertLengthUnit(X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", MathUtils.ConvertLengthUnit(Y, unit).ToString(provider))
-                        .AppendFormat("{0} )", MathUtils.ConvertLengthUnit(Z, unit).ToString(provider));
+                    sb.AppendFormat("( {0} , ",Physics.ConvertLengthUnit(X, unit).ToString(provider))
+                        .AppendFormat("{0} , ",Physics.ConvertLengthUnit(Y, unit).ToString(provider))
+                        .AppendFormat("{0} )", Physics.ConvertLengthUnit(Z, unit).ToString(provider));
                     return sb.ToString();
             }
         }
