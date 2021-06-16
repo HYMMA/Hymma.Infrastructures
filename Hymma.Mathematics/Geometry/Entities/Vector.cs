@@ -274,9 +274,10 @@ namespace Hymma.Mathematics
         /// <returns>true if two vectors are almost equal and false otherwise</returns>
         public bool IsAlmosEqualTo(Vector vector, double tolerance = 1E-10)
         {
-            var diff = this - vector;
-            Math.Round(this.Start.X,)
-            return MathUtils.AlmostEqual(tolerance, 0, diff.GetMagnitude());
+            var thisUnit = GetUnitVector();
+            var thatUnit = vector.GetUnitVector();
+            var criterion = thisUnit.DotProductWith(thatUnit);
+            return MathUtils.AlmostEqual(tolerance, 1, criterion);
         }
         #endregion
 
