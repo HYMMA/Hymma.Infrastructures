@@ -9,7 +9,7 @@
         /// make a unit vector for a specific vector
         /// </summary>
         /// <param name="vector"></param>
-        public UnitVector(Vector vector)
+        public UnitVector(IVector vector)
         {
             Start = vector.Start;
             End = vector.End;
@@ -37,9 +37,9 @@
         }
 
         /// <inheritdoc/>
-        public IPoint Start { get ; set ; }
+        public IPoint Start { get ;}
 
         /// <inheritdoc/>
-        public IPoint End { get; set; }
+        public IPoint End { get; }
     }
 }
