@@ -19,6 +19,12 @@ namespace Hymma.Mathematics
         {
             this.Start = Start;
             this.End = End;
+
+            //vector components are defined using 
+            var componentVector = this.From(new Origin());
+            this.DeltaX = componentVector.End.X;
+            this.DeltaY = componentVector.End.Y;
+            this.DeltaZ = componentVector.End.Z;
         }
 
         /// <summary>
@@ -53,13 +59,28 @@ namespace Hymma.Mathematics
 
         ///<inheritdoc/>
         public IPoint End { get; set; }
+
+        /// <summary>
+        /// the distance this vector travels along X axis
+        /// </summary>
+        public double DeltaX { get; }
+
+        /// <summary>
+        /// the distance this vector travels along Y axis
+        /// </summary>
+        public double DeltaY { get; }
+
+        /// <summary>
+        /// the distance this vector travels along Z axis
+        /// </summary>
+        public double DeltaZ { get; }
         #endregion
 
         #region Iequitable<Vector> implimentations
         //https://www.codeproject.com/Articles/20592/Implementing-IEquatable-Properly
 
         /// <summary>
-        /// determines if this vector is equal to other
+        /// determines if this vector is equal to other mathematically
         /// </summary>
         /// <param name="other">other vector to check equality against</param>
         /// <returns>true of they are equal false otherwise</returns>
@@ -69,10 +90,11 @@ namespace Hymma.Mathematics
 
             if (other is null) return false;
 
-            //check values
+            //by definition two vectors are equal if their components are exactly the same
             return
-                (Point)this.Start == (Point)other.Start &&
-                (Point)this.End == (Point)other.End;
+                this.DeltaX == other.DeltaX &&
+                this.DeltaY == other.DeltaY &&
+                this.DeltaZ == other.DeltaZ;
         }
 
         /// <summary>
@@ -85,8 +107,9 @@ namespace Hymma.Mathematics
         {
             if (object.ReferenceEquals(v1, v2)) return true;
             return
-                (Point)v1.Start == (Point)v2.Start &&
-                (Point)v1.End == (Point)v2.End;
+                v1.DeltaX == v2.DeltaX &&
+                v1.DeltaY == v2.DeltaY &&
+                v1.DeltaZ == v2.DeltaZ;
         }
 
         /// <summary>
@@ -99,8 +122,9 @@ namespace Hymma.Mathematics
         {
             if (object.ReferenceEquals(v1, v2)) return false;
             return
-                (Point)v1.Start != (Point)v2.Start &&
-                (Point)v1.End != (Point)v2.End;
+                v1.DeltaX != v2.DeltaX &&
+                v1.DeltaY != v2.DeltaY &&
+                v1.DeltaZ != v2.DeltaZ;
         }
 
         /// <summary>
@@ -122,7 +146,7 @@ namespace Hymma.Mathematics
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return Start.GetHashCode() ^ End.GetHashCode();
+            return DeltaX.GetHashCode() ^ DeltaY.GetHashCode() ^ DeltaZ.GetHashCode();
         }
 
         #endregion
