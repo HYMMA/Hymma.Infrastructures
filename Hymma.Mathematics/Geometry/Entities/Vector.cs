@@ -37,6 +37,24 @@ namespace Hymma.Mathematics
         }
 
         /// <summary>
+        /// a vector whose start is at (0,0,0) and end point is defined by an array of double[3]
+        /// </summary>
+        /// <param name="endPoint"><see cref="double"/> if a bigger array is provided only the first three memebes will be considered</param>
+        public Vector(double[] endPoint) : this(new Point(endPoint))
+        {
+
+        }
+
+        /// <summary>
+        /// a vector whose start and end point are define by array of double[3]
+        /// </summary>
+        /// <param name="startPoint">double[3] representing start or tail of the vector</param>
+        /// <param name="endPoint">double[3] representing end or head of the vector</param>
+        public Vector(double[] startPoint, double[] endPoint) :this(new Point(startPoint), new Point(endPoint))
+        {
+
+        }
+        /// <summary>
         /// define a vector using a point, unit vector and size
         /// </summary>
         /// <param name="start">the point this vector should start from</param>
@@ -282,16 +300,14 @@ namespace Hymma.Mathematics
         /// <returns><see cref="Vector"/> from <see cref="Origin"/> that is cross product of the two vectors</returns>
         public Vector CrossProductWith(Vector vector)
         {
-            var v1 = From(new Origin());
-            var v2 = vector.From(new Origin());
+            var x1 = this.DeltaX;
+            var y1 = this.DeltaY;
+            var z1 = this.DeltaZ;
 
-            var x1 = v1.End.X;
-            var y1 = v1.End.Y;
-            var z1 = v1.End.Z;
+            var x2 = vector.DeltaX;
+            var y2 = vector.DeltaY;
+            var z2 = vector.DeltaZ;
 
-            var x2 = v2.End.X;
-            var y2 = v2.End.Y;
-            var z2 = v2.End.Z;
             var xt = y1 * z2 - z1 * y2;
             var yt = z1 * x2 - x1 * z2;
             var zt = x1 * y2 - y1 * x2;

@@ -19,6 +19,5 @@ namespace Hymma.Mathematics
         {
             return Abs(num1 - num2) < tolerance;
         }
-
     }
 }
