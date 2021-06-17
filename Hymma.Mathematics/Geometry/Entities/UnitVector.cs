@@ -1,9 +1,11 @@
-﻿namespace Hymma.Mathematics
+﻿using System;
+
+namespace Hymma.Mathematics
 {
     /// <summary>
     /// a unit vector is a vector whose size is equal to one
     /// </summary>
-    public struct UnitVector  : IVector
+    public struct UnitVector : IVector
     {
         /// <summary>
         /// make a unit vector for a specific vector
@@ -11,35 +13,55 @@
         /// <param name="vector"></param>
         public UnitVector(IVector vector)
         {
-            Start = vector.Start;
-            End = vector.End;
-
-            //get srat coords
-            var x1 = Start.X;
-            var y1 = Start.Y;
-            var z1 = Start.Z;
-
-            //get endvector.vector
-            var x2 = End.X;
-            var y2 = End.Y;
-            var z2 = End.Z;
-
-            //get a new vector that starts from origin
-            var vectorFromOrigin = new Vector(new Point(x2 - x1, y2 - y1, z2 - z1));
+            //get End of vector if drawn from origin
+            var delta = vector.End.Minus(vector.Start);
 
             //get its length
-            var length = vectorFromOrigin.GetMagnitude();
+            var length = Math.Sqrt(delta.X * delta.X + delta.Y * delta.Y + delta.Z + delta.Z);
 
             //get coordinates of the unit vector end point
-            var x = vectorFromOrigin.End.X / length;
-            var y = vectorFromOrigin.End.Y / length;
-            var z = vectorFromOrigin.End.Z / length;
+            DeltaX = delta.X / length;
+            DeltaY = delta.Y / length;
+            DeltaZ = delta.Z / length;
+
+            End = new Point(DeltaX, DeltaY, DeltaZ);
+            Start = new Origin();
         }
 
         /// <inheritdoc/>
-        public IPoint Start { get ;}
+        public IPoint Start { get; }
 
         /// <inheritdoc/>
         public IPoint End { get; }
+
+        ///<inheritdoc/>
+        public double DeltaX { get; }
+
+        ///<inheritdoc/>
+        public double DeltaY { get; }
+
+        ///<inheritdoc/>
+        public double DeltaZ { get; }
+
+        ///<inheritdoc/>
+        public double GetMagnitude()
+        {
+            return 1;
+        }
+
+        ///<inheritdoc/>
+        public UnitVector GetUnitVector()
+        {
+            return this;
+        }
+
+        ///<summary> 
+        ///get coordinaitons as string in angle brackets, unit vectors are unitless
+        ///</summary>
+        /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>
+        public override string ToString()
+        {
+            return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
+        }
     }
 }

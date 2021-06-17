@@ -141,9 +141,19 @@ namespace Hymma.Mathematics
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns><see cref="Point"/> with coordinates that are result of subtraction between a and b</returns>
-        public static Point operator -(Point a, Point b)
+        public static IPoint operator -(Point a, Point b)
         {
-            return new Point(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            return a.Minus(b);
+        }
+        /// <summary>
+        /// get  a + b
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns><see cref="Point"/> with coordinates that are sum of a and b</returns>
+        public static IPoint operator +(Point a, Point b)
+        {
+            return a.Plus(b);
         }
         #endregion
 
@@ -226,6 +236,17 @@ namespace Hymma.Mathematics
                         .AppendFormat("{0} )", Physics.ConvertLengthUnit(Z, unit).ToString(provider));
                     return sb.ToString();
             }
+        }
+        /// <inheritdoc/>
+        public IPoint Minus(IPoint point)
+        {
+            return new Point(X - point.X, Y - point.Y, Z - point.Z);
+        }
+
+        /// <inheritdoc/>
+        public IPoint Plus(IPoint point)
+        {
+            return new Point(X + point.X, Y + point.Y, Z + point.Z);
         }
     }
 }

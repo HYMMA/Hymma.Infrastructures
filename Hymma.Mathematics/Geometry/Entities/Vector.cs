@@ -7,7 +7,7 @@ namespace Hymma.Mathematics
     /// <summary>
     /// a vector in metric cartesian coordinate system
     /// </summary>
-    public class Vector : IVector, IEquatable<Vector>, IFormattable
+    public struct Vector : IVector, ICalculateVector, IEquatable<Vector>, IFormattable
     {
         #region constructors
         /// <summary>
@@ -21,17 +21,16 @@ namespace Hymma.Mathematics
             this.End = End;
 
             //vector components are defined using 
-            var componentVector = this.From(new Point(0, 0, 0));
-            this.DeltaX = componentVector.End.X;
-            this.DeltaY = componentVector.End.Y;
-            this.DeltaZ = componentVector.End.Z;
+            this.DeltaX = End.X - Start.X;
+            this.DeltaY = End.Y - Start.Y;
+            this.DeltaZ = End.Z - Start.Z;
         }
 
         /// <summary>
-        /// a vector whose start is at <see cref="Origin"/>
+        /// a vector whose start is at (0,0,0)
         /// </summary>
-        /// <param name="end"></param>
-        public Vector(IPoint end) : this(new Point(0, 0, 0), end)
+        /// <param name="end">end aka head of this vector</param>
+        public Vector(IPoint end) : this(new Origin(), end)
         {
 
         }
@@ -60,7 +59,7 @@ namespace Hymma.Mathematics
         /// <param name="start">the point this vector should start from</param>
         /// <param name="direction"></param>
         /// <param name="magnitude"></param>
-        public Vector(IPoint start, UnitVector direction, double magnitude) :
+        public Vector(Point start, UnitVector direction, double magnitude) :
             this(start, new Point(magnitude * direction.End.X + start.X,
                 magnitude * direction.End.Y + start.Y,
                 magnitude * direction.End.Z + start.Z))
@@ -100,7 +99,7 @@ namespace Hymma.Mathematics
         {
             if (object.ReferenceEquals(this, other)) return true;
 
-            if (other is null) return false;
+            //if (other is null) return false;
 
             //by definition two vectors are equal if their components are exactly the same
             return
@@ -146,10 +145,10 @@ namespace Hymma.Mathematics
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            var vector = obj as Vector;
-            if (vector is null)
-                return false;
-            return Equals(vector);
+            //var vector = obj as Vector;
+            if (obj is Vector vector)
+                return Equals(vector);
+            return false;
         }
 
         /// <summary>
@@ -191,7 +190,7 @@ namespace Hymma.Mathematics
         /// <returns></returns>
         public string ToString(string unit, IFormatProvider provider)
         {
-            if (String.IsNullOrEmpty(unit)) unit = "G";
+            if (string.IsNullOrEmpty(unit)) unit = "G";
             if (provider == null) provider = CultureInfo.CurrentCulture;
 
             switch (unit.ToUpperInvariant())
@@ -265,7 +264,6 @@ namespace Hymma.Mathematics
 
         #region Algebraic Methodes
 
-
         /// <summary>
         /// dot product of the two vectors
         /// </summary>
@@ -273,22 +271,19 @@ namespace Hymma.Mathematics
         /// <returns></returns>
         public double DotProductWith(IVector vector)
         {
-            var v1 = this.From(new Point(0, 0, 0));
-            var v2 = vector.From(new Point(0, 0, 0));
+            var x1 = DeltaX;
+            var y1 = DeltaY;
+            var z1 = DeltaZ;
 
-            var x1 = v1.End.X;
-            var y1 = v1.End.Y;
-            var z1 = v1.End.Z;
-
-            var x2 = v2.End.X;
-            var y2 = v2.End.Y;
-            var z2 = v2.End.Z;
+            var x2 = vector.DeltaX;
+            var y2 = vector.DeltaY;
+            var z2 = vector.DeltaZ;
 
             return x1 * x2 + y1 * y2 + z1 * z2;
         }
 
         ///<inheritdoc/>
-        public Vector CrossProductWith(Vector vector)
+        public IVector CrossProductWith(IVector vector)
         {
             var x1 = this.DeltaX;
             var y1 = this.DeltaY;
@@ -311,58 +306,24 @@ namespace Hymma.Mathematics
         /// <returns>a new <see cref="Vector"/> from specified point with the same direction and magnitude as this one</returns>
         public Vector From(IPoint point)
         {
-            //redraw this vector from the point specified
-            return new Vector(point, this.GetUnitVector(), this.GetMagnitude());
+            //measure differences
+            var delta = point.Minus(Start);
+
+            //make new vector that starts from point and add the delta variables to the head of old vector
+            return new Vector(point, End.Plus(delta));
         }
 
         /// <inheritdoc/>
         public double GetMagnitude()
         {
-            //get srat coords
-            var x1 = Start.X;
-            var y1 = Start.Y;
-            var z1 = Start.Z;
-
-            //get end
-            var x2 = End.X;
-            var y2 = End.Y;
-            var z2 = End.Z;
-
-            //get distances
-            var deltaX = x2 - x1;
-            var deltaY = y2 - y1;
-            var deltaZ = z2 - z1;
-
-            return Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+            return Math.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY + DeltaZ * DeltaZ);
         }
 
         ///<inheritdoc/>
         public UnitVector GetUnitVector()
         {
-            //get srat coords
-            var x1 = Start.X;
-            var y1 = Start.Y;
-            var z1 = Start.Z;
-
-            //get endvector.vector
-            var x2 = End.X;
-            var y2 = End.Y;
-            var z2 = End.Z;
-
-            //get a new vector that starts from origin
-            var vectorFromOrigin = new Vector(new Point(x2 - x1, y2 - y1, z2 - z1));
-
-            //get its length
-            var length = vectorFromOrigin.GetMagnitude();
-
-            //get coordinates of the unit vector end point
-            var x = vectorFromOrigin.End.X / length;
-            var y = vectorFromOrigin.End.Y / length;
-            var z = vectorFromOrigin.End.Z / length;
-
             //update this unit vector start and end points
-            return new UnitVector(new Point(0,0,0,), new Point(x,y,z));
-
+            return new UnitVector(this);
         }
 
         /// <summary>
