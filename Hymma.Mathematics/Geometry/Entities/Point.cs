@@ -7,7 +7,7 @@ namespace Hymma.Mathematics
     /// <summary>
     /// a point in cartesian coordinate system
     /// </summary>
-    public class Point : IPoint, IEquatable<Point>, IFormattable
+    public struct Point : IPoint, IEquatable<Point>, IFormattable
     {
         #region constructors
 
@@ -129,10 +129,7 @@ namespace Hymma.Mathematics
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            var point = obj as Point;
-            if (point != null)
-                return Equals(point);
-            return false;
+            return Equals(obj);
         }
         #endregion
 
@@ -224,8 +221,8 @@ namespace Hymma.Mathematics
                     return $"({X} , {Y} , {Z})";
                 default:
                     var sb = new StringBuilder();
-                    sb.AppendFormat("( {0} , ",Physics.ConvertLengthUnit(X, unit).ToString(provider))
-                        .AppendFormat("{0} , ",Physics.ConvertLengthUnit(Y, unit).ToString(provider))
+                    sb.AppendFormat("( {0} , ", Physics.ConvertLengthUnit(X, unit).ToString(provider))
+                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(Y, unit).ToString(provider))
                         .AppendFormat("{0} )", Physics.ConvertLengthUnit(Z, unit).ToString(provider));
                     return sb.ToString();
             }

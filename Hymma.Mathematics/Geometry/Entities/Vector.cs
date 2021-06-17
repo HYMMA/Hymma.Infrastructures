@@ -21,7 +21,7 @@ namespace Hymma.Mathematics
             this.End = End;
 
             //vector components are defined using 
-            var componentVector = this.From(new Origin());
+            var componentVector = this.From(new Point(0, 0, 0));
             this.DeltaX = componentVector.End.X;
             this.DeltaY = componentVector.End.Y;
             this.DeltaZ = componentVector.End.Z;
@@ -31,7 +31,7 @@ namespace Hymma.Mathematics
         /// a vector whose start is at <see cref="Origin"/>
         /// </summary>
         /// <param name="end"></param>
-        public Vector(IPoint end) : this(new Origin(), end)
+        public Vector(IPoint end) : this(new Point(0, 0, 0), end)
         {
 
         }
@@ -50,7 +50,7 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="startPoint">double[3] representing start or tail of the vector</param>
         /// <param name="endPoint">double[3] representing end or head of the vector</param>
-        public Vector(double[] startPoint, double[] endPoint) :this(new Point(startPoint), new Point(endPoint))
+        public Vector(double[] startPoint, double[] endPoint) : this(new Point(startPoint), new Point(endPoint))
         {
 
         }
@@ -78,19 +78,13 @@ namespace Hymma.Mathematics
         ///<inheritdoc/>
         public IPoint End { get; set; }
 
-        /// <summary>
-        /// the distance this vector travels along X axis
-        /// </summary>
+        ///<inheritdoc/>
         public double DeltaX { get; }
 
-        /// <summary>
-        /// the distance this vector travels along Y axis
-        /// </summary>
+        ///<inheritdoc/>
         public double DeltaY { get; }
 
-        /// <summary>
-        /// the distance this vector travels along Z axis
-        /// </summary>
+        ///<inheritdoc/>
         public double DeltaZ { get; }
         #endregion
 
@@ -277,10 +271,10 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="vector">vector that  you want the dot product of this vector with</param>
         /// <returns></returns>
-        public double DotProductWith(Vector vector)
+        public double DotProductWith(IVector vector)
         {
-            var v1 = this.From(new Origin());
-            var v2 = vector.From(new Origin());
+            var v1 = this.From(new Point(0, 0, 0));
+            var v2 = vector.From(new Point(0, 0, 0));
 
             var x1 = v1.End.X;
             var y1 = v1.End.Y;
@@ -293,11 +287,7 @@ namespace Hymma.Mathematics
             return x1 * x2 + y1 * y2 + z1 * z2;
         }
 
-        /// <summary>
-        /// cross product of two vectors
-        /// </summary>
-        /// <param name="vector">the vector you want the cross product with</param>
-        /// <returns><see cref="Vector"/> from <see cref="Origin"/> that is cross product of the two vectors</returns>
+        ///<inheritdoc/>
         public Vector CrossProductWith(Vector vector)
         {
             var x1 = this.DeltaX;
@@ -325,10 +315,7 @@ namespace Hymma.Mathematics
             return new Vector(point, this.GetUnitVector(), this.GetMagnitude());
         }
 
-        /// <summary>
-        /// magnitude or size of this vector
-        /// </summary>
-        /// <returns>size of vector in the same unit as vector</returns>
+        /// <inheritdoc/>
         public double GetMagnitude()
         {
             //get srat coords
@@ -349,13 +336,33 @@ namespace Hymma.Mathematics
             return Math.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
         }
 
-        /// <summary>
-        /// get direction of this vector in the form of a <see cref="UnitVector"/>
-        /// </summary>
-        /// <returns><see cref="UnitVector"/> with the magnitude of 1 which shows the direction of this <see cref="Vector"/></returns>
-        public virtual UnitVector GetUnitVector()
+        ///<inheritdoc/>
+        public UnitVector GetUnitVector()
         {
-            return new UnitVector(this);
+            //get srat coords
+            var x1 = Start.X;
+            var y1 = Start.Y;
+            var z1 = Start.Z;
+
+            //get endvector.vector
+            var x2 = End.X;
+            var y2 = End.Y;
+            var z2 = End.Z;
+
+            //get a new vector that starts from origin
+            var vectorFromOrigin = new Vector(new Point(x2 - x1, y2 - y1, z2 - z1));
+
+            //get its length
+            var length = vectorFromOrigin.GetMagnitude();
+
+            //get coordinates of the unit vector end point
+            var x = vectorFromOrigin.End.X / length;
+            var y = vectorFromOrigin.End.Y / length;
+            var z = vectorFromOrigin.End.Z / length;
+
+            //update this unit vector start and end points
+            return new UnitVector(new Point(0,0,0,), new Point(x,y,z));
+
         }
 
         /// <summary>

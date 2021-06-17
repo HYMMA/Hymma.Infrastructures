@@ -10,7 +10,7 @@ namespace SampleApp
         {
             var p = new Point(1, 2, 3);
             var v1 = new Vector(p, new Point(1,.5,3));
-            var v2 = new Vector(new Point(4, 4, 0));
+            var v2 = new Vector(new Point(2, 1.5, 4));
             var v3 = new Vector(new Point(4, 4, 0));
             var v4 = new Vector(new Point(3.999, 3.999, 0));
             object objV3 = v3;
