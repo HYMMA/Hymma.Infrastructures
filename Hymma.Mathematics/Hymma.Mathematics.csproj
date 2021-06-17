@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Hymma.Mathematics.Signiture.snk" />
+    <None Include="ReadMe.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Geometry\Extensions\" />
