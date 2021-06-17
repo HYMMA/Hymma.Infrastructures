@@ -55,12 +55,5 @@ namespace Hymma.Mathematics
         /// the distance this vector travels along Z axis
         /// </summary>
         double DeltaZ { get; }
-
-        /// <summary>
-        /// get a translated version of this vector 
-        /// </summary>
-        /// <param name="point"></param>
-        /// <returns>a new <see cref="IVector"/> from specified point with the same direction and magnitude as this one</returns>
-        IVector From(IPoint point);
     }
 }
