@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Net", "Hymma.Net\Hymma.Net.csproj", "{7C5E2AD8-D0A7-4A9C-844F-425EE01CE461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Units", "Units\Hymma.Units.csproj", "{77116F95-6EE7-43AC-9747-055B9195144F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Units", "Hymma.Units\Hymma.Units.csproj", "{77116F95-6EE7-43AC-9747-055B9195144F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
