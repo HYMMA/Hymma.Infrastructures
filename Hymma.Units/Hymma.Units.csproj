@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="HYMMA.UNITS.snk" />
+    <None Include="ReadMe.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
