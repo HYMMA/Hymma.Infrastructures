@@ -8,14 +8,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Units</projectUrl>
-    <icon>..\Assets\icon.png</icon>
-    <readme>..\Readme.md</readme>
+    <icon>icon.jpg</icon>
     <description>$description$</description>
     <releaseNotes>Initial Release</releaseNotes>
     <copyright>HYMMA</copyright>
     <tags>Unit Conversion Physics</tags>
   </metadata>
   <files>
-    <file Src="..\Assets\*.png" target=""/>
+    <file src="./icon.jpg" target=""/>
   </files>
 </package>
