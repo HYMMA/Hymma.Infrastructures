@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Units</projectUrl>
+    <icon>..\Assets\icon.png</icon>
+    <readme>..\Readme.md</readme>
+    <description>$description$</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>HYMMA</copyright>
+    <tags>Unit Conversion Physics</tags>
+  </metadata>
+  <files>
+    <file Src="..\Assets\*.png" target=""/>
+  </files>
+</package>
