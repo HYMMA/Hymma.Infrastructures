@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Mechanical", "Hymma.Mechanical\Hymma.Mechanical.csproj", "{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{77116F95-6EE7-43AC-9747-055B9195144F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77116F95-6EE7-43AC-9747-055B9195144F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77116F95-6EE7-43AC-9747-055B9195144F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <id>Hymma.Units</id>
+    <version>1.0.0</version>
+    <title>HYMMA.Units</title>
+    <authors>HYMMA</authors>
+    <owners></owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Units</projectUrl>
     <icon>icon.jpg</icon>
-    <description>$description$</description>
+    <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Units</projectUrl>
+    <description>This is a unit converter designed to convert multiple units of measurement to each other.
+some of the units covered are kg, gr, mile, km, meter, mm ...</description>
     <releaseNotes>Initial Release</releaseNotes>
     <copyright>HYMMA</copyright>
     <tags>Unit Conversion Physics</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="./icon.jpg" target=""/>
+    <file src="./icon.jpg" target=""></file>
   </files>
 </package>
