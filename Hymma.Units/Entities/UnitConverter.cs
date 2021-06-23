@@ -35,7 +35,7 @@
         }
 
         /// <summary>
-        /// Actual value of this <see cref="UnitConverter"/> in the <see cref="IUnitOfMeasure"/> provided
+        /// Actual value of this <see cref="IUnitOfMeasure"/>
         /// </summary>
         public double Value { get; set; }
     }

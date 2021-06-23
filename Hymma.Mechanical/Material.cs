@@ -1,4 +1,5 @@
-﻿namespace Hymma.Units
+﻿using Hymma.Units;
+namespace Hymma.Mechanical
 {
     /// <summary>
     /// a material that represents a physical material of a componetn
