@@ -9,8 +9,18 @@ namespace SampleApp
     {
         static void Main(string[] args)
         {
+            Header("Mathematics Calculations");
             SampleForMathematics();
+            Header("Units calculations");
             SampleForUnits();
+            Console.ReadLine();
+        }
+        private static void Header(string header)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine($"====={header}=====");
+            Console.ResetColor();
         }
         private static void SampleForMathematics()
         {
@@ -37,19 +47,23 @@ namespace SampleApp
             Console.WriteLine($" v2 is v3 ? {v2 == v3}");
             Console.WriteLine($"v2 is objV3 ? {v2.Equals(objV3)}");
             Console.WriteLine($"v2 is almost equalt to v4 ? {v3.AlmostEquals(v4, 0.005)}");
-            Console.ReadLine();
         }
         private static void SampleForUnits()
         {
-            var mass = new Mass(37, MassUnit.Kg); //make a new mass struct
+            var mass = new Mass(37, MassUnit.Kg); //make a new mass object
             var vol = new Volume(20, VolUnit.cm3);//new voluem
             var density = new Density(mass, vol);//construct density based on these objects
-            Console.WriteLine(density);
+            var length = new Length(200, LengthUnit.mm); //define a length object
+            Console.WriteLine($"length in mm is: {length}"); //show length along with its unit
+            Console.WriteLine($"volume in cm3 is: {vol}"); //show vlume along with its unit
+
+            Console.WriteLine($"density in {mass.Unit.Id}/{vol.Unit.Id} is {density}");
 
             mass.Unit = new Gram(); //change the unit of the mass object
             vol.Unit = new CubicMillimeter(); //change the unit of volume object
-            Console.WriteLine(density); //density value reflects updates in units
-            Console.ReadLine();
+            length.Unit = new Meter(); //change unit of length
+            Console.WriteLine($"length in meter is {length}"); //show length along with its unit
+            Console.WriteLine($"density new value is {density}"); //density value reflects updates in units
         }
     }
 }

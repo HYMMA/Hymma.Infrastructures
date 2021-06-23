@@ -15,7 +15,16 @@
         protected UnitConverter(T unitOfMeasure, double Measurement)
         {
             _unit = unitOfMeasure;
-            this.Value = Measurement;
+            this.Measurement = Measurement;
+        }
+
+        /// <summary>
+        /// usefule to use with enums
+        /// </summary>
+        /// <param name="Measurement"></param>
+        protected UnitConverter(double Measurement)
+        {
+            this.Measurement = Measurement;
         }
 
         /// <summary>
@@ -26,8 +35,15 @@
             get => _unit;
             set
             {
+                //conversion factor
+                double factor = value.CoversionFactor;
+
+                //on first initializaiton _unit could be null
+                if (_unit != null)
+                    factor = _unit.CoversionFactor;
+
                 //update the Value based on the new unit 
-                Value = (Value / value.CoversionFactor) * _unit.CoversionFactor;
+                Measurement = (Measurement / value.CoversionFactor) * factor;
 
                 //update the unit
                 _unit = value;
@@ -37,6 +53,6 @@
         /// <summary>
         /// Actual value of this <see cref="IUnitOfMeasure"/>
         /// </summary>
-        public double Value { get; set; }
+        public double Measurement { get; set; }
     }
 }

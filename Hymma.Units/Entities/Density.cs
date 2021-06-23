@@ -29,7 +29,7 @@
         /// <summary>
         /// returns actual density value based on Mass/Volume
         /// </summary>
-        public double Value => Mass.Value / Volume.Value;
+        public double Value => Mass.Measurement / Volume.Measurement;
 
         /// <summary>
         /// returns unit of this density

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Density.cs" />
+    <Compile Include="Entities\Length.cs" />
     <Compile Include="Entities\Mass.cs" />
     <Compile Include="Core\IUnitOfLength.cs" />
     <Compile Include="Core\IUnitOfMass.cs" />

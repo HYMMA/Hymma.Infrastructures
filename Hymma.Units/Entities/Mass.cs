@@ -31,11 +31,12 @@
         /// </summary>
         /// <param name="value"></param>
         /// <param name="massUnit"></param>
-        public Mass(double value, MassUnit massUnit):this(value,new Kilogram())
+        public Mass(double value, MassUnit massUnit):base(value)
         {
             switch (massUnit)
             {
                 case MassUnit.Kg:
+                    Unit = new Kilogram();
                     break;
                 case MassUnit.gr:
                     Unit = new Gram();
@@ -61,7 +62,7 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return Value.ToString("G2") + $" {Unit.Id}";
+            return Measurement.ToString("G2") + $" {Unit.Id}";
         }
     }
 }

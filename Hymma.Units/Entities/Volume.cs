@@ -29,11 +29,12 @@
         /// </summary>
         /// <param name="value"></param>
         /// <param name="volUnits"></param>
-        public Volume(double value, VolUnit volUnits) : this(value)
+        public Volume(double value, VolUnit volUnits) : base(value)
         {
             switch (volUnits)
             {
                 case VolUnit.m3:
+                    Unit = new CubicMeter();
                     break;
                 case VolUnit.mm3:
                     Unit = new CubicMillimeter();
@@ -70,7 +71,7 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return Value.ToString("G2") + $" {Unit.Id}";
+            return Measurement.ToString("G2") + $" {Unit.Id}";
         }
     }
 }
