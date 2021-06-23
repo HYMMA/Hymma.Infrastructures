@@ -2,7 +2,7 @@
 namespace Hymma.Mechanical
 {
     /// <summary>
-    /// a material that represents a physical material of a componetn
+    /// a material that represents a physical material of a component
     /// </summary>
     public class Material
     {
