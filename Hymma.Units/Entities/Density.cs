@@ -1,9 +1,9 @@
 ﻿namespace Hymma.Units
 {
     /// <summary>
-    /// density of a <see cref="Material"/>
+    /// density of a Material
     /// </summary>
-    public class Density 
+    public class Density
     {
         /// <summary>
         /// default constructor
@@ -29,18 +29,12 @@
         /// <summary>
         /// returns actual density value based on Mass/Volume
         /// </summary>
-        public double Value
-        {
-            get => Mass.Value / Volume.Value;
-        }
+        public double Value => Mass.Value / Volume.Value;
 
         /// <summary>
         /// returns unit of this density
         /// </summary>
-        public string Unit
-        {
-            get => Mass.Unit.Id + "/" + Volume.Unit.Id;
-        }
+        public string Unit => Mass.Unit.Id + "/" + Volume.Unit.Id;
 
         /// <summary>
         /// get value along with unit of density
@@ -48,7 +42,7 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return Value.ToString("G2") +" "+ Unit;
+            return Value.ToString("G2") + " " + Unit;
         }
     }
 }
