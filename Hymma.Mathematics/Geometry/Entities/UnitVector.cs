@@ -61,7 +61,7 @@ namespace Hymma.Mathematics
         /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>
         public override string ToString()
         {
-            return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
+            return $"<{DeltaX} , {DeltaY} , {DeltaZ}>";
         }
     }
 }

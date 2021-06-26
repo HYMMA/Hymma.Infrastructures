@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Globalization;
-using System.Text;
 
 namespace Hymma.Mathematics
 {
     /// <summary>
     /// a point in cartesian coordinate system
     /// </summary>
-    public struct Point : IPoint, IEquatable<Point>, IFormattable
+    public struct Point : IPoint, IEquatable<Point>
     {
         #region constructors
 
@@ -38,6 +36,7 @@ namespace Hymma.Mathematics
             Y = coordinates[1];
             Z = coordinates[2];
         }
+
         #endregion
 
         #region properties
@@ -173,8 +172,10 @@ namespace Hymma.Mathematics
                         return X;
                     case 1:
                         return Y;
+                    case 2:
+                        return Z;
                     default:
-                        throw new IndexOutOfRangeException("The index must be between 0 and 1.");
+                        throw new IndexOutOfRangeException("The index must be between 0 and 3.");
                 }
             }
             set
@@ -187,56 +188,25 @@ namespace Hymma.Mathematics
                     case 1:
                         Y = value;
                         break;
+                    case 2:
+                        Z = value;
+                        break;
                     default:
-                        throw new IndexOutOfRangeException("The index must be between 0 and 1.");
+                        throw new IndexOutOfRangeException("The index must be between 0 and 3.");
                 }
             }
         }
         #endregion
 
         /// <summary>
-        /// return the string representation of this point in Meter
+        /// return the string representation of this point
         /// </summary>
         /// <returns>( {X} , {Y} , {Z} )</returns>
         public override string ToString()
         {
-            return ToString("G", CultureInfo.CurrentCulture);
+            return $"({X} , {Y} , {Z})";
         }
 
-        /// <summary>
-        /// return the string representation of this point in <see cref="CultureInfo.CurrentCulture"/>
-        /// </summary>
-        /// <param name="unit">unit to convert value from meter to</param>
-        /// <returns></returns>
-        public string ToString(string unit)
-        {
-            return this.ToString(unit, CultureInfo.CurrentCulture);
-        }
-
-        /// <summary>
-        /// returns a string representation of this point in unit and culture provided
-        /// </summary>
-        /// <param name="unit">unit to convert value from meter to</param>
-        /// <param name="provider">the <see cref="CultureInfo"/> to format the string into</param>
-        /// <returns></returns>
-        public string ToString(string unit, IFormatProvider provider)
-        {
-            if (String.IsNullOrEmpty(unit)) unit = "G";
-            if (provider == null) provider = CultureInfo.CurrentCulture;
-
-            switch (unit.ToUpperInvariant())
-            {
-                case "G":
-                case "M":
-                    return $"({X} , {Y} , {Z})";
-                default:
-                    var sb = new StringBuilder();
-                    sb.AppendFormat("( {0} , ", Physics.ConvertLengthUnit(X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(Y, unit).ToString(provider))
-                        .AppendFormat("{0} )", Physics.ConvertLengthUnit(Z, unit).ToString(provider));
-                    return sb.ToString();
-            }
-        }
         /// <inheritdoc/>
         public IPoint Minus(IPoint point)
         {

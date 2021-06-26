@@ -7,7 +7,7 @@ namespace Hymma.Mathematics
     /// <summary>
     /// a vector in metric cartesian coordinate system
     /// </summary>
-    public struct Vector : IVector, ICalculateVector, IEquatable<Vector>, IFormattable
+    public struct Vector : IVector, ICalculateVector, IEquatable<Vector>
     {
         #region constructors
         /// <summary>
@@ -66,7 +66,6 @@ namespace Hymma.Mathematics
         {
 
         }
-
         #endregion
 
         #region Properties
@@ -162,55 +161,13 @@ namespace Hymma.Mathematics
 
         #endregion
 
-        #region Iformattable
-
         ///<summary> get coordinaitons as string in angle brackets
         ///</summary>
-        /// <returns>&lt;{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}&gt;</returns>
+        /// <returns>&lt;{DeltaX} , {DeltaY} , {DeltaZ}&gt;</returns>
         public override string ToString()
         {
-            return ToString("G", CultureInfo.CurrentCulture);
+            return $"<{DeltaX} , {DeltaY} , {DeltaZ}>";
         }
-
-        /// <summary>
-        /// return value in string using <see cref="CultureInfo.CurrentCulture"/>
-        /// </summary>
-        /// <param name="unit">the unit to convet to. Defualt is meter</param>
-        /// <returns></returns>
-        public string ToString(string unit)
-        {
-            return this.ToString(unit, CultureInfo.CurrentCulture);
-        }
-
-        /// <summary>
-        /// return value in string an convert the unit of vector
-        /// </summary>
-        /// <param name="unit">the unit to convet to. Defualt is meter</param>
-        /// <param name="provider">the <see cref="CultureInfo"/> to format the string into</param>
-        /// <returns></returns>
-        public string ToString(string unit, IFormatProvider provider)
-        {
-            if (string.IsNullOrEmpty(unit)) unit = "G";
-            if (provider == null) provider = CultureInfo.CurrentCulture;
-
-            switch (unit.ToUpperInvariant())
-            {
-                case "G":
-                case "M":
-                    return $"<{Start.X} , {Start.Y} , {Start.Z} , {End.X} , {End.Y} , {End.Z}>";
-                default:
-                    var sb = new StringBuilder();
-                    sb.AppendFormat("< {0} , ", Physics.ConvertLengthUnit(Start.X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(Start.Y, unit).ToString(provider))
-                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(Start.Z, unit).ToString(provider))
-                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(End.X, unit).ToString(provider))
-                        .AppendFormat("{0} , ", Physics.ConvertLengthUnit(End.Y, unit).ToString(provider))
-                        .AppendFormat("{0} >", Physics.ConvertLengthUnit(End.Z, unit).ToString(provider));
-
-                    return sb.ToString();
-            }
-        }
-        #endregion
 
         #region operators - + *
 
@@ -325,19 +282,7 @@ namespace Hymma.Mathematics
             //update this unit vector start and end points
             return new UnitVector(this);
         }
-
-        /// <summary>
-        /// determines if this vector is almost equal to another disregarding tiny differences in thier direction and size
-        /// </summary>
-        /// <param name="vector">another vector to compare this one against</param>
-        /// <param name="tolerance">tolerance of acceptable deviation</param>
-        /// <returns>true if two vectors are almost equal and false otherwise</returns>
-        public bool AlmostEquals(Vector vector, double tolerance = 1E-6)
-        {
-            //get distance between the heads once two vectors are drawn from same point
-            double diff = (this - vector).GetMagnitude();
-            return MathUtils.NumbersAreAlmostEqual(tolerance, diff, 0);
-        }
+        
         #endregion
     }
 }
