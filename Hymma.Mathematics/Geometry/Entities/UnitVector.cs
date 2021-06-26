@@ -7,6 +7,8 @@ namespace Hymma.Mathematics
     /// </summary>
     public struct UnitVector : IVector
     {
+        #region constructors
+
         /// <summary>
         /// make a unit vector for a specific vector
         /// </summary>
@@ -27,6 +29,16 @@ namespace Hymma.Mathematics
             End = new Point(DeltaX, DeltaY, DeltaZ);
             Start = new Origin();
         }
+
+        /// <summary>
+        /// get a unit vector that represents the direction of a vector made by an array of doubles
+        /// </summary>
+        /// <param name="coordinats"></param>
+        public UnitVector(double[] coordinats) : this (new Vector(coordinats))
+        {
+
+        }
+        #endregion
 
         /// <inheritdoc/>
         public IPoint Start { get; }
