@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Hymma.Mathematics.Signiture.snk" />
-    <None Include="packages.config" />
     <None Include="ReadMe.md" />
   </ItemGroup>
   <ItemGroup />
