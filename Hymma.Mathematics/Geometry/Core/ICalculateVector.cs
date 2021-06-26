@@ -17,13 +17,13 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="vector">vector that  you want the dot product of this vector with</param>
         /// <returns></returns>
-        double DotProductWith(IVector vector);
+        double Dot(IVector vector);
 
         /// <summary>
         /// cross product of two vectors
         /// </summary>
         /// <param name="vector">the vector you want the cross product with</param>
         /// <returns><see cref="Vector"/> from origin that is cross product of the two vectors</returns>
-        IVector CrossProductWith(IVector vector);
+        IVector Cross(IVector vector);
     }
 }

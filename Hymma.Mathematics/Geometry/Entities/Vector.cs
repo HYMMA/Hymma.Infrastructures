@@ -226,7 +226,7 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="vector">vector that  you want the dot product of this vector with</param>
         /// <returns></returns>
-        public double DotProductWith(IVector vector)
+        public double Dot(IVector vector)
         {
             var x1 = DeltaX;
             var y1 = DeltaY;
@@ -240,7 +240,7 @@ namespace Hymma.Mathematics
         }
 
         ///<inheritdoc/>
-        public IVector CrossProductWith(IVector vector)
+        public IVector Cross(IVector vector)
         {
             var x1 = this.DeltaX;
             var y1 = this.DeltaY;
@@ -282,7 +282,19 @@ namespace Hymma.Mathematics
             //update this unit vector start and end points
             return new UnitVector(this);
         }
-        
+
+        /// <summary>
+        /// determines if this vector is almost equal to another disregarding tiny differences in thier direction and size
+        /// </summary>
+        /// <param name="v2">Second vector</param>
+        /// <param name="tolerance">tolerance of acceptable deviation</param>
+        /// <returns>true if two vectors are almost equal and false otherwise</returns>
+        public bool AlmostEquals( Vector v2, double tolerance = 1E-6)
+        {
+            //get distance between the heads once two vectors are drawn from same point
+            double diff = (v2 - this).GetMagnitude();
+            return MathUtils.NumbersAreAlmostEqual(tolerance, diff, 0);
+        }
         #endregion
     }
 }
