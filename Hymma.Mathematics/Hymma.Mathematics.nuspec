@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <id>Hymma.Mathematics</id>
+    <version>1.0.5</version>
+    <title>Hymma.Mathematics</title>
+    <authors>HYMMA</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures</projectUrl>
-    <icon>images/icon.jpg</icon>
+    <icon>images\icon.jpg</icon>
     <description>Written on .Net 4.5 this package provides primitive mathematical components such as Points, Vectors, UnitVectors etc</description>
     <releaseNotes>Initial Release.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Mathematics Hymma</tags>
-    <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System" targetFramework="net45" />
-    </frameworkAssemblies>
     <dependencies>
-      <group targetFramework="net45">
-      </group>
+      <group targetFramework=".NETFramework4.5"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="icon.jpg" target="images">  </file>
-    <file src="bin/Release/Hymma.Mathematics.dll" target="lib/net45">  </file>
-    <file src="bin/Release/Hymma.Mathematics.xml" target="lib/net45">  </file>
+    <file src="icon.jpg" target="images"></file>
+    <file src="bin\release\hymma.mathematics.dll" target="lib\net45"/>
+    <file src="bin\release\hymma.mathematics.xml" target="lib\net45"/>
   </files>
 </package>

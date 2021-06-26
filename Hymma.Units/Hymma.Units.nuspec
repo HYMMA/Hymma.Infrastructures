@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <id>Hymma.Units</id>
+    <version>1.0.6</version>
+    <title>Hymma.Units</title>
+    <authors>HYMMA</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Units</projectUrl>
@@ -19,7 +19,7 @@
   </metadata>
   <files>
     <file src="icon.jpg" target="images"></file>
-    <file src="bin\Release\*.dll" target="lib\.NETFramework4.5"></file>
-    <file src="bin\Release\*.xml" target="lib\.NETFramework4.5"></file>
+    <file src="bin\Release\*.dll" target="lib\net45"></file>
+    <file src="bin\Release\*.xml" target="lib\net45"></file>
   </files>
 </package>
