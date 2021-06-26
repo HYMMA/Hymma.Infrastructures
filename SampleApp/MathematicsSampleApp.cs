@@ -30,6 +30,7 @@ namespace SampleApp
             var v4 = new Vector(new Point(3.999, 3.999, 0));
             object objV3 = v3;
             Console.WriteLine($"v2 is {v2}");
+            Console.WriteLine($"v1 is {v1}");
             Console.WriteLine($"v3 is {v3}");
             Console.WriteLine($"v4 is {v4}");
             Console.WriteLine($"v1 * 2 {v1 * 2}");

@@ -51,7 +51,6 @@
     <Compile Include="Geometry\Core\ICalculateVector.cs" />
     <Compile Include="Geometry\Entities\Origin.cs" />
     <Compile Include="Geometry\Entities\UnitVector.cs" />
-    <Compile Include="Geometry\Tools\Physics.cs" />
     <Compile Include="Geometry\Tools\MathUtils.cs" />
     <Compile Include="Geometry\Core\IPoint.cs" />
     <Compile Include="Geometry\Core\IVector.cs" />

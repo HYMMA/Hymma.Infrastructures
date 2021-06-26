@@ -64,6 +64,7 @@
     <Compile Include="Entities\UnitConverter.cs" />
     <Compile Include="Entities\Volume.cs" />
     <Compile Include="Core\VolumeUnits.cs" />
+    <Compile Include="Tools\Physics.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HYMMA.UNITS.snk" />
