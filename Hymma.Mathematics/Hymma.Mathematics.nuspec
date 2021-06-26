@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures</projectUrl>
+    <icon>images/icon.jpg</icon>
+    <description>A package for mathematical operations. You can find mathematical primitive components in this package such as Points, Vectors, UnitVectors etc</description>
+    <releaseNotes>Initial Release.</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Mathematics Hymma</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="net45" />
+    </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="icon.jpg" target="images">  </file>
+    <file src="bin/Release/Hymma.Mathematics.dll" target="lib/net45">  </file>
+    <file src="bin/Release/Hymma.Mathematics.xml" target="lib/net45">  </file>
+  </files>
+</package>
