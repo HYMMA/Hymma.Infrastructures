@@ -1,5 +1,5 @@
 ﻿
-namespace Hymma.Mathematics
+namespace Hymma.Units
 {
     /// <summary>
     /// utities and tools for physics 

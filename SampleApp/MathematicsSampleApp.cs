@@ -1,7 +1,6 @@
 ﻿using Hymma.Mathematics;
 using Hymma.Units;
 using System;
-using System.Globalization;
 
 namespace SampleApp
 {

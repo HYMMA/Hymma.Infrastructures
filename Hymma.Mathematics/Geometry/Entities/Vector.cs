@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Text;
 
 namespace Hymma.Mathematics
 {
@@ -289,7 +287,7 @@ namespace Hymma.Mathematics
         /// <param name="v2">Second vector</param>
         /// <param name="tolerance">tolerance of acceptable deviation</param>
         /// <returns>true if two vectors are almost equal and false otherwise</returns>
-        public bool AlmostEquals( Vector v2, double tolerance = 1E-6)
+        public bool AlmostEquals(Vector v2, double tolerance = 1E-6)
         {
             //get distance between the heads once two vectors are drawn from same point
             double diff = (v2 - this).GetMagnitude();
