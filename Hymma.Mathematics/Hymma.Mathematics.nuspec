@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures</projectUrl>
     <icon>images/icon.jpg</icon>
-    <description>A package for mathematical operations. You can find mathematical primitive components in this package such as Points, Vectors, UnitVectors etc</description>
+    <description>Written on .Net 4.5 this package provides primitive mathematical components such as Points, Vectors, UnitVectors etc</description>
     <releaseNotes>Initial Release.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Mathematics Hymma</tags>
@@ -17,7 +17,7 @@
       <frameworkAssembly assemblyName="System" targetFramework="net45" />
     </frameworkAssemblies>
     <dependencies>
-      <group targetFramework=".NETFramework4.5">
+      <group targetFramework="net45">
       </group>
     </dependencies>
   </metadata>
