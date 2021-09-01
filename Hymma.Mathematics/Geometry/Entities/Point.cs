@@ -198,6 +198,32 @@ namespace Hymma.Mathematics
         }
         #endregion
 
+        #region static constructors
+        /// <summary>
+        /// make a new point with x y z coordinations
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <returns></returns>
+        public static Point XYZ(double x, double y, double z)
+        {
+            return new Point(x, y, z);
+        }
+
+        /// <summary>
+        /// make a point with x y coordinations
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        /// <remarks>z=0</remarks>
+        public static Point XY(double x, double y)
+        {
+            return new Point(x, y, 0);
+        }
+        #endregion
+
         /// <summary>
         /// return the string representation of this point
         /// </summary>

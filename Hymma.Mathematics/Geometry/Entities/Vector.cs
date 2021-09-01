@@ -291,7 +291,7 @@ namespace Hymma.Mathematics
         {
             //get distance between the heads once two vectors are drawn from same point
             double diff = (v2 - this).GetMagnitude();
-            return MathUtils.NumbersAreAlmostEqual(tolerance, diff, 0);
+            return MathUtils.NumbersAreAlmostEqual(diff, 0, tolerance);
         }
         #endregion
     }

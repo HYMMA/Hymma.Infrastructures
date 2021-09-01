@@ -49,7 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geometry\Core\ICalculateVector.cs" />
+    <Compile Include="Geometry\Core\IRegion.cs" />
+    <Compile Include="Geometry\Core\IVolume.cs" />
+    <Compile Include="Geometry\Entities\Circle.cs" />
     <Compile Include="Geometry\Entities\Origin.cs" />
+    <Compile Include="Geometry\Entities\Polygon.cs" />
+    <Compile Include="Geometry\Entities\Rectangle.cs" />
     <Compile Include="Geometry\Entities\UnitVector.cs" />
     <Compile Include="Geometry\Tools\MathUtils.cs" />
     <Compile Include="Geometry\Core\IPoint.cs" />
