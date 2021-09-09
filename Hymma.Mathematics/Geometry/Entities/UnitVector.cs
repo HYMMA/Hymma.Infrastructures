@@ -26,7 +26,7 @@ namespace Hymma.Mathematics
             DeltaY = delta.Y / length;
             DeltaZ = delta.Z / length;
 
-            End = new Point(DeltaX, DeltaY, DeltaZ);
+            End = new Coordinate(DeltaX, DeltaY, DeltaZ);
             Start = new Origin();
         }
 

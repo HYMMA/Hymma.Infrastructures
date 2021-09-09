@@ -5,15 +5,14 @@ namespace Hymma.Mathematics
     /// <summary>
     /// a vector in metric cartesian coordinate system
     /// </summary>
-    public struct Vector : IVector, ICalculateVector, IEquatable<Vector>
+    public struct Vector : ILineSegment, ICalculateVector, IEquatable<Vector>
     {
         #region constructors
         /// <summary>
         /// a vector in cartesian coordination system
         /// </summary>
-        /// <param name="Start">the <see cref="IPoint"/> vector starts from</param>
         /// <param name="End">the <see cref="IPoint"/> vector points to</param>
-        public Vector(IPoint Start, IPoint End)
+        public Vector(IPoint End)
         {
             this.Start = Start;
             this.End = End;
@@ -37,7 +36,7 @@ namespace Hymma.Mathematics
         /// a vector whose start is at (0,0,0) and end point is defined by an array of double[3]
         /// </summary>
         /// <param name="endPoint"><see cref="double"/> if a bigger array is provided only the first three memebes will be considered</param>
-        public Vector(double[] endPoint) : this(new Point(endPoint))
+        public Vector(double[] endPoint) : this(new Coordinate(endPoint))
         {
 
         }
@@ -47,7 +46,7 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="startPoint">double[3] representing start or tail of the vector</param>
         /// <param name="endPoint">double[3] representing end or head of the vector</param>
-        public Vector(double[] startPoint, double[] endPoint) : this(new Point(startPoint), new Point(endPoint))
+        public Vector(double[] startPoint, double[] endPoint) : this(new Coordinate(startPoint), new Coordinate(endPoint))
         {
 
         }
@@ -57,7 +56,7 @@ namespace Hymma.Mathematics
         /// <param name="start">the point this vector should start from</param>
         /// <param name="direction"></param>
         /// <param name="magnitude"></param>
-        public Vector(Point start, UnitVector direction, double magnitude) :
+        public Vector(Coordinate start, UnitVector direction, double magnitude) :
             this(start, new Point(magnitude * direction.End.X + start.X,
                 magnitude * direction.End.Y + start.Y,
                 magnitude * direction.End.Z + start.Z))

@@ -23,14 +23,14 @@ namespace SampleApp
         }
         private static void SampleForMathematics()
         {
-            var p = new Point(1, 2, 3);
-            var p2 = Point.XY(1, 2);
-            var p3 = Point.XYZ(1, 2, 3);
+            var p = new Coordinate(1, 2, 3);
+            var p2 = Coordinate.XY(1, 2);
+            var p3 = Coordinate.XYZ(1, 2, 3);
             p3.Minus(p2);
-            var v1 = new Vector(p, new Point(1, 4, 4));
-            var v2 = new Vector(new Point(4, 4, 0));
-            var v3 = new Vector(new Point(4, 4, 0));
-            var v4 = new Vector(new Point(3.999, 3.999, 0));
+            var v1 = new Vector(p, new Coordinate(1, 4, 4));
+            var v2 = new Vector(new Coordinate(4, 4, 0));
+            var v3 = new Vector(new Coordinate(4, 4, 0));
+            var v4 = new Vector(new Coordinate(3.999, 3.999, 0));
             object objV3 = v3;
             Console.WriteLine($"v2 is {v2}");
             Console.WriteLine($"v1 is {v1}");

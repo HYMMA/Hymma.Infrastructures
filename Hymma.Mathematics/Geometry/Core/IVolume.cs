@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hymma.Mathematics
+namespace Hymma.Mathematics.Geometry.Core
+{
     public interface IVolume
     {
-
-        IEnumerable<IRegion> Regions { get; set; }
+        IEnumerable<IArea> Regions { get; set; }
     }
 }

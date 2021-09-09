@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Hymma.Mathematics.Geometry.Core;
+using System;
 
 namespace Hymma.Mathematics
 {
     /// <summary>
-    /// a point in cartesian coordinate system
+    /// a coord in cartesian coordinate system
     /// </summary>
-    public struct Point : IPoint, IEquatable<Point>
+    public struct Coordinate : ICoordinate, IEquatable<Coordinate>
     {
         #region constructors
 
@@ -15,7 +16,7 @@ namespace Hymma.Mathematics
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="z"></param>
-        public Point(double x, double y, double z)
+        public Coordinate(double x, double y, double z)
         {
             this.X = x;
             this.Y = y;
@@ -23,12 +24,12 @@ namespace Hymma.Mathematics
         }
 
         /// <summary>
-        /// make point in cartesian system using an array of doulbe[]<br/>
+        /// make coord in cartesian system using an array of doulbe[]<br/>
         /// coordinates[0] is X, coordinates[1] is Y and the coordinates[2] will be Z 
         /// </summary>
         /// <param name="coordinates">array of double[] with 3 members</param>
         /// <remarks>will consider only the first 3 members of the array </remarks>
-        public Point(double[] coordinates)
+        public Coordinate(double[] coordinates)
         {
             if (coordinates == null || coordinates.Length < 3)
                 throw new ArgumentOutOfRangeException();
@@ -62,11 +63,11 @@ namespace Hymma.Mathematics
         //https://www.codeproject.com/Articles/20592/Implementing-IEquatable-Properly
 
         /// <summary>
-        /// determines if this point is equal to another one
+        /// determines if this coord is equal to another one
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(Point other)
+        public bool Equals(Coordinate other)
         {
             if (object.ReferenceEquals(this, other)) return true;
 
@@ -80,12 +81,12 @@ namespace Hymma.Mathematics
 
         //following Equitable<T> implimentaions best practices we should override this operator
         /// <summary>
-        /// determines if two points are <strong>not</strong> equal
+        /// determines if two coords are <strong>not</strong> equal
         /// </summary>
-        /// <param name="a">first point</param>
-        /// <param name="b">second point</param>
+        /// <param name="a">first coord</param>
+        /// <param name="b">second coord</param>
         /// <returns>true if they are not equal</returns>
-        public static bool operator !=(Point a, Point b)
+        public static bool operator !=(Coordinate a, Coordinate b)
         {
             if (object.ReferenceEquals(a, b)) return false;
             return
@@ -96,12 +97,12 @@ namespace Hymma.Mathematics
 
         //following Equitable<T> implimentaions best practices we should override this operator
         /// <summary>
-        /// determins if two points are equal
+        /// determins if two coords are equal
         /// </summary>
-        /// <param name="a">first point</param>
-        /// <param name="b">second point</param>
+        /// <param name="a">first coord</param>
+        /// <param name="b">second coord</param>
         /// <returns>true if they are equal </returns>
-        public static bool operator ==(Point a, Point b)
+        public static bool operator ==(Coordinate a, Coordinate b)
         {
             if (object.ReferenceEquals(a, b)) return true;
             return
@@ -122,7 +123,7 @@ namespace Hymma.Mathematics
 
         //following Equitable<T> implimentaions best practices we should override this
         /// <summary>
-        /// determines if this point equals to the object specified
+        /// determines if this coord equals to the object specified
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -139,8 +140,8 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
-        /// <returns><see cref="Point"/> with coordinates that are result of subtraction between a and b</returns>
-        public static IPoint operator -(Point a, Point b)
+        /// <returns><see cref="Coordinate"/> with coordinates that are result of subtraction between a and b</returns>
+        public static ICoordinate operator -(Coordinate a, Coordinate b)
         {
             return a.Minus(b);
         }
@@ -149,8 +150,8 @@ namespace Hymma.Mathematics
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
-        /// <returns><see cref="Point"/> with coordinates that are sum of a and b</returns>
-        public static IPoint operator +(Point a, Point b)
+        /// <returns><see cref="Coordinate"/> with coordinates that are sum of a and b</returns>
+        public static ICoordinate operator +(Coordinate a, Coordinate b)
         {
             return a.Plus(b);
         }
@@ -200,32 +201,32 @@ namespace Hymma.Mathematics
 
         #region static constructors
         /// <summary>
-        /// make a new point with x y z coordinations
+        /// make a new coord with x y z coordinations
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <returns></returns>
-        public static Point XYZ(double x, double y, double z)
+        public static Coordinate XYZ(double x, double y, double z)
         {
-            return new Point(x, y, z);
+            return new Coordinate(x, y, z);
         }
 
         /// <summary>
-        /// make a point with x y coordinations
+        /// make a coord with x y coordinations
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
         /// <remarks>z=0</remarks>
-        public static Point XY(double x, double y)
+        public static Coordinate XY(double x, double y)
         {
-            return new Point(x, y, 0);
+            return new Coordinate(x, y, 0);
         }
         #endregion
 
         /// <summary>
-        /// return the string representation of this point
+        /// return the string representation of this coord
         /// </summary>
         /// <returns>( {X} , {Y} , {Z} )</returns>
         public override string ToString()
@@ -234,15 +235,15 @@ namespace Hymma.Mathematics
         }
 
         /// <inheritdoc/>
-        public IPoint Minus(IPoint point)
+        public ICoordinate Minus(ICoordinate coord)
         {
-            return new Point(X - point.X, Y - point.Y, Z - point.Z);
+            return new Coordinate(X - coord.X, Y - coord.Y, Z - coord.Z);
         }
 
         /// <inheritdoc/>
-        public IPoint Plus(IPoint point)
+        public ICoordinate Plus(ICoordinate coord)
         {
-            return new Point(X + point.X, Y + point.Y, Z + point.Z);
+            return new Coordinate(X + coord.X, Y + coord.Y, Z + coord.Z);
         }
     }
 }

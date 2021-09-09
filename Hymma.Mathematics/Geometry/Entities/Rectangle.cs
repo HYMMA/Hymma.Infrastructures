@@ -8,7 +8,7 @@ namespace Hymma.Mathematics.Geometry.Entities
 {
     public struct Rectangle : IPolygon
     {
-        public List<Point> Points { get; set; }
+        public List<Coordinate> Points { get; set; }
         public double Area { get; }
         public double Perimeter { get; }
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hymma.Mathematics
+﻿namespace Hymma.Mathematics.Geometry.Core
 {
     /// <summary>
     /// an interface to conduct calculations on an <see cref="IVector"/>

@@ -8,6 +8,6 @@ namespace Hymma.Mathematics
 {
     public interface IPolygon : IRegion
     {
-        List<Point> Points{ get; set; }
+        List<ILineSegment> Segments{ get; set; }
     }
 }
