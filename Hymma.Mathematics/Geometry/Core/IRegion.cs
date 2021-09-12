@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Hymma.Mathematics.Geometry.Core
 {
-    public interface IArea
+    public interface IRegion
     {
         /// <summary>
         /// area of the enclosed region
         /// </summary>
-        Magnitude Magnitude{ get;  }
+        double Area { get; }
 
         /// <summary>
         /// perimeter of the encosed region
         /// </summary>
-        Magnitude Perimeter { get;  }
+        double Perimeter { get; }
     }
 }

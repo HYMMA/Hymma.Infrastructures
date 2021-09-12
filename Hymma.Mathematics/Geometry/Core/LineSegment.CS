@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Drawing;
 
 namespace Hymma.Mathematics.Geometry.Core
 {
     /// <summary>
     /// a vector in cartesian coordinate syste
     /// </summary>
-    public abstract class LineSegment : ILine
+    public class LineSegment : ILine
     {
         /// <summary>
         /// create a line segment with two points
@@ -16,11 +15,12 @@ namespace Hymma.Mathematics.Geometry.Core
         public LineSegment(ICoordinate point1, ICoordinate point2)
         {
             Coord1 = point1; Coord2 = point2;
-            DeltaX = Math.Abs(Coord1.X - Coord2.X);
-            DeltaY = Math.Abs(Coord1.Y - Coord2.Y);
-            DeltaZ = Math.Abs(Coord1.Z - Coord2.Z);
         }
 
+        public static LineSegment FromPoints(ICoordinate point1, ICoordinate point2)
+        {
+            return new LineSegment(point1, point2);
+        }
         /// <summary>
         /// first point of the line segment
         /// </summary>
@@ -35,21 +35,21 @@ namespace Hymma.Mathematics.Geometry.Core
         /// magnitude or size of this segment
         /// </summary>
         /// <returns>size of vector in the same unit as vector</returns>
-        public Magnitude Size => Math.Sqrt(Math.Pow(DeltaX, 2) + Math.Pow(DeltaY, 2) + Math.Pow(DeltaZ, 2));
+        public double Size => Math.Sqrt(Math.Pow(DeltaX, 2) + Math.Pow(DeltaY, 2) + Math.Pow(DeltaZ, 2));
 
         /// <summary>
         /// the distance this segment travels along X axis
         /// </summary>
-        public double DeltaX { get; }
+        public double DeltaX => Math.Abs(Coord1.X - Coord2.X);
 
         /// <summary>
         /// the distance this segment travels along Y axis
         /// </summary>
-        public double DeltaY { get; }
+        public double DeltaY => Math.Abs(Coord1.Y - Coord2.Y);
 
         /// <summary>
         /// the distance this segment travels along Z axis
         /// </summary>
-        public double DeltaZ { get; }
+        public double DeltaZ => Math.Abs(Coord1.Z - Coord2.Z);
     }
 }

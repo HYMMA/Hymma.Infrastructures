@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hymma.Mathematics.Geometry.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Hymma.Mathematics
 {
     public interface IPolygon : IRegion
     {
-        List<ILineSegment> Segments{ get; set; }
+        List<LineSegment> Segments{ get;  }
     }
 }

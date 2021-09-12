@@ -225,6 +225,8 @@ namespace Hymma.Mathematics
         }
         #endregion
 
+        #region methods
+
         /// <summary>
         /// return the string representation of this coord
         /// </summary>
@@ -245,5 +247,6 @@ namespace Hymma.Mathematics
         {
             return new Coordinate(X + coord.X, Y + coord.Y, Z + coord.Z);
         }
+        #endregion
     }
 }

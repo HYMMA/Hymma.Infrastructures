@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Hymma.Mathematics.Geometry.Core
 {
     public interface IVolume
     {
-        IEnumerable<IArea> Regions { get; set; }
+        /// <summary>
+        /// list of smaller extrusions that make up this volume
+        /// </summary>
+        List<IExtrude> Extrusions { get; set; }
     }
 }
