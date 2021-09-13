@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Hymma.Mathematics.Geometry.Core
+namespace Hymma.CADWorks.Geometry.Core
 {
     /// <summary>
     /// a vector in cartesian coordinate syste
     /// </summary>
-    public class LineSegment : ILine
+    public class LineSegment : ILine, ICurveSegment
     {
         /// <summary>
         /// create a line segment with two points
@@ -51,5 +51,11 @@ namespace Hymma.Mathematics.Geometry.Core
         /// the distance this segment travels along Z axis
         /// </summary>
         public double DeltaZ => Math.Abs(Coord1.Z - Coord2.Z);
+
+        public Func<double, double> Equation => (x) =>
+        {
+            var a=Coord2.Y-Coord1.Y
+        };
+        public double Length => Math.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY + DeltaZ + DeltaZ);
     }
 }

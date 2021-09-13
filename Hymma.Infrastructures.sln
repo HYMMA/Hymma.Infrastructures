@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Mathematics", "Hymma.Mathematics\Hymma.Mathematics.csproj", "{96BD15F0-0AF7-4791-8214-2E720E5398CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{E6166D13-7728-45F6-9553-0E1154A2FD8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Net", "Hymma.Net\Hymma.Net.csproj", "{7C5E2AD8-D0A7-4A9C-844F-425EE01CE461}"
@@ -18,16 +16,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Mechanical", "Hymma.Mechanical\Hymma.Mechanical.csproj", "{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.CADWorks", "Hymma.CADWorks\Hymma.CADWorks.csproj", "{96BD15F0-0AF7-4791-8214-2E720E5398CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61C79C36-67DA-4D5B-BB1E-7992F3132C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

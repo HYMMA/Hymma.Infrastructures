@@ -1,4 +1,4 @@
-﻿using Hymma.Mathematics.Geometry.Core;
+﻿using Hymma.CADWorks.Geometry.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;

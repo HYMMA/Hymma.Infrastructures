@@ -49,10 +49,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hymma.Mathematics\Hymma.Mathematics.csproj">
-      <Project>{96bd15f0-0af7-4791-8214-2e720e5398cd}</Project>
-      <Name>Hymma.Mathematics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Hymma.Units\Hymma.Units.csproj">
       <Project>{77116f95-6ee7-43ac-9747-055b9195144f}</Project>
       <Name>Hymma.Units</Name>

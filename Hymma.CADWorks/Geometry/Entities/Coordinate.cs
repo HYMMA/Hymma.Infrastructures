@@ -1,7 +1,7 @@
-﻿using Hymma.Mathematics.Geometry.Core;
+﻿using Hymma.CADWorks.Geometry.Core;
 using System;
 
-namespace Hymma.Mathematics
+namespace Hymma.CADWorks
 {
     /// <summary>
     /// a coord in cartesian coordinate system

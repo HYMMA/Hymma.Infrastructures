@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace Hymma.Mathematics.Geometry.Core
+namespace Hymma.CADWorks.Geometry.Core
 {
+    /// <summary>
+    /// a reagion is a closed polygon or curve or collection of curves that form a closed region in 2d 
+    /// </summary>
     public interface IRegion
     {
         /// <summary>
@@ -13,5 +16,7 @@ namespace Hymma.Mathematics.Geometry.Core
         /// perimeter of the encosed region
         /// </summary>
         double Perimeter { get; }
+         
+        List<ICurveSegment> Border { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-﻿using Hymma.Mathematics.Geometry.Core;
+﻿using Hymma.CADWorks.Geometry.Core;
 using System;
 
-namespace Hymma.Mathematics.Geometry.Entities
+namespace Hymma.CADWorks.Geometry.Entities
 {
     public struct Circle : IRegion
     {

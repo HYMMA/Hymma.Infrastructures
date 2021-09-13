@@ -7,8 +7,8 @@
     <ProjectGuid>{96BD15F0-0AF7-4791-8214-2E720E5398CD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hymma.Mathematics</RootNamespace>
-    <AssemblyName>Hymma.Mathematics</AssemblyName>
+    <RootNamespace>Hymma.CADWorks</RootNamespace>
+    <AssemblyName>Hymma.CADWorks</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Hymma.Mathematics.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Hymma.CADWorks.xml</DocumentationFile>
     <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Geometry\Core\ICurve.cs" />
     <Compile Include="Geometry\Core\IRegion.cs" />
-    <Compile Include="Geometry\Core\ICalculateVector.cs" />
     <Compile Include="Geometry\Core\ICoordinate.cs" />
     <Compile Include="Geometry\Core\ILine.cs" />
-    <Compile Include="Geometry\Core\IExtrude.cs" />
+    <Compile Include="Geometry\Core\IVolumeFeature.cs" />
     <Compile Include="Geometry\Core\IVolume.cs" />
     <Compile Include="Geometry\Core\LineSegment.CS" />
     <Compile Include="Geometry\Entities\Circle.cs" />
@@ -61,7 +61,6 @@
     <Compile Include="Geometry\Entities\Polygon.cs" />
     <Compile Include="Geometry\Entities\Rectangle.cs" />
     <Compile Include="Geometry\Entities\UnitVector.cs" />
-    <Compile Include="Geometry\Entities\VectorSpace.cs" />
     <Compile Include="Geometry\Tools\MathUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Geometry\Entities\Vector.cs" />

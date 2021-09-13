@@ -1,13 +1,13 @@
-﻿using Hymma.Mathematics.Geometry.Core;
+﻿using Hymma.CADWorks.Geometry.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hymma.Mathematics.Geometry.Entities
+namespace Hymma.CADWorks.Geometry.Entities
 {
-    public struct Rectangle : IPolygon
+    public struct Rectangle : Polygon
     {
         public static Rectangle FromCenterToCorner(Coordinate center, Coordinate coordinate)
         {

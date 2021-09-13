@@ -1,4 +1,4 @@
-﻿namespace Hymma.Mathematics.Geometry.Core
+﻿namespace Hymma.CADWorks.Geometry.Core
 {
     /// <summary>
     /// In classical Euclidean geometry, a point is a primitive notion that models an exact location in the space, and has no length, width, or thickness.<br/>
