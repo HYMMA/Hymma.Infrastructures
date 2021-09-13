@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hymma.Mathematics
+namespace Hymma.CADWorks
 {
     /// <summary>
     /// a unit vector is a vector whose size is equal to one

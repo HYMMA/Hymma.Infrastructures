@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hymma.Mathematics
+namespace Hymma.CADWorks
 {
     /// <summary>
     /// a vector in metric cartesian coordinate system

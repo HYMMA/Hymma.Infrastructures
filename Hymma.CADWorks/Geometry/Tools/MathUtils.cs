@@ -1,6 +1,6 @@
 ﻿using static System.Math;
 
-namespace Hymma.Mathematics
+namespace Hymma.CADWorks
 {
     /// <summary>
     /// utities and tools for mathematics 

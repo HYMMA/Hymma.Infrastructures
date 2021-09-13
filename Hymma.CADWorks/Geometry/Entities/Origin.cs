@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hymma.Mathematics
+namespace Hymma.CADWorks
 {
     /// <summary>
     /// an <see cref="IPoint"/> from (0,0,0)

@@ -49,10 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geometry\Core\ICurve.cs" />
+    <Compile Include="Geometry\Core\ICurveSegment.cs" />
     <Compile Include="Geometry\Core\IRegion.cs" />
     <Compile Include="Geometry\Core\ICoordinate.cs" />
     <Compile Include="Geometry\Core\ILine.cs" />
-    <Compile Include="Geometry\Core\IVolumeFeature.cs" />
+    <Compile Include="Geometry\Core\IFeature.cs" />
     <Compile Include="Geometry\Core\IVolume.cs" />
     <Compile Include="Geometry\Core\LineSegment.CS" />
     <Compile Include="Geometry\Entities\Circle.cs" />
