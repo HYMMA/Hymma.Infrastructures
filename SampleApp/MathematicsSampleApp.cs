@@ -1,5 +1,4 @@
-﻿using Hymma.Mathematics;
-using Hymma.Units;
+﻿using Hymma.Units;
 using System;
 
 namespace SampleApp
@@ -23,28 +22,28 @@ namespace SampleApp
         }
         private static void SampleForMathematics()
         {
-            var p = new Coordinate(1, 2, 3);
-            var p2 = Coordinate.XY(1, 2);
-            var p3 = Coordinate.XYZ(1, 2, 3);
-            p3.Minus(p2);
-            var v1 = new Vector(p, new Coordinate(1, 4, 4));
-            var v2 = new Vector(new Coordinate(4, 4, 0));
-            var v3 = new Vector(new Coordinate(4, 4, 0));
-            var v4 = new Vector(new Coordinate(3.999, 3.999, 0));
-            object objV3 = v3;
-            Console.WriteLine($"v2 is {v2}");
-            Console.WriteLine($"v1 is {v1}");
-            Console.WriteLine($"v3 is {v3}");
-            Console.WriteLine($"v4 is {v4}");
-            Console.WriteLine($"v1 * 2 {v1 * 2}");
-            Console.WriteLine($"v1 + v2 {v1 + v2}");
-            Console.WriteLine($"v1 - v2 {v1 - v2}");
-            Console.WriteLine($"v1 unit vector is {v1.GetUnitVector()}");
-            Console.WriteLine($"v1 . v2 {v1.Dot(v2)}");
-            Console.WriteLine($"v1 X v2 {v1.Cross(v2)}");
-            Console.WriteLine($" v2 is v3 ? {v2 == v3}");
-            Console.WriteLine($"v2 is objV3 ? {v2.Equals(objV3)}");
-            Console.WriteLine($"v3 is almost equalt to v4 ? {v3.AlmostEquals(v4, 0.005)}");
+            //var p = new Coordinate(1, 2, 3);
+            //var p2 = Coordinate.XY(1, 2);
+            //var p3 = Coordinate.XYZ(1, 2, 3);
+            //p3.Minus(p2);
+            //var v1 = new Vector(p, new Coordinate(1, 4, 4));
+            //var v2 = new Vector(new Coordinate(4, 4, 0));
+            //var v3 = new Vector(new Coordinate(4, 4, 0));
+            //var v4 = new Vector(new Coordinate(3.999, 3.999, 0));
+            //object objV3 = v3;
+            //Console.WriteLine($"v2 is {v2}");
+            //Console.WriteLine($"v1 is {v1}");
+            //Console.WriteLine($"v3 is {v3}");
+            //Console.WriteLine($"v4 is {v4}");
+            //Console.WriteLine($"v1 * 2 {v1 * 2}");
+            //Console.WriteLine($"v1 + v2 {v1 + v2}");
+            //Console.WriteLine($"v1 - v2 {v1 - v2}");
+            //Console.WriteLine($"v1 unit vector is {v1.GetUnitVector()}");
+            //Console.WriteLine($"v1 . v2 {v1.Dot(v2)}");
+            //Console.WriteLine($"v1 X v2 {v1.Cross(v2)}");
+            //Console.WriteLine($" v2 is v3 ? {v2 == v3}");
+            //Console.WriteLine($"v2 is objV3 ? {v2.Equals(objV3)}");
+            //Console.WriteLine($"v3 is almost equalt to v4 ? {v3.AlmostEquals(v4, 0.005)}");
         }
         private static void SampleForUnits()
         {
@@ -54,7 +53,6 @@ namespace SampleApp
             var length = new Length(200, LengthUnit.mm); //define a length object
             Console.WriteLine($"length in mm is: {length}"); //show length along with its unit
             Console.WriteLine($"volume in cm3 is: {vol}"); //show vlume along with its unit
-
             Console.WriteLine($"density in {mass.Unit.Id}/{vol.Unit.Id} is {density}");
 
             mass.Unit = new Gram(); //change the unit of the mass object
@@ -62,6 +60,11 @@ namespace SampleApp
             length.Unit = new Meter(); //change unit of length
             Console.WriteLine($"length in meter is {length}"); //show length along with its unit
             Console.WriteLine($"density new value is {density}"); //density value reflects updates in units
+
+            //using static constructors
+            var massofTon =Mass.Of(50, Units.Mass.ton);
+            massofTon.Unit = Units.Mass.gr;
+            
         }
     }
 }

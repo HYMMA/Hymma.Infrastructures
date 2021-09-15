@@ -5,6 +5,8 @@
     /// </summary>
     public class Volume : UnitConverter<IUnitOfVolume>
     {
+        #region constructors
+
         /// <summary>
         /// default constructor
         /// </summary>
@@ -64,7 +66,33 @@
                     break;
             }
         }
+        #endregion
 
+        #region static constructos
+
+        /// <summary>
+        /// get a new volume object based on the value and unit provided
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="unitOfVolume"></param>
+        /// <returns></returns>
+        public static Volume Of(double value, IUnitOfVolume unitOfVolume)
+        {
+            return new Volume(value, unitOfVolume);
+        }
+
+        /// <summary>
+        /// return a new volume in cubic meters
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Volume Of(double value)
+        {
+            return new Volume(value);
+        }
+        #endregion
+
+        #region methods
         /// <summary>
         /// Get value along with its unit
         /// </summary>
@@ -73,5 +101,6 @@
         {
             return Measurement.ToString("G2") + $" {Unit.Id}";
         }
+        #endregion
     }
 }

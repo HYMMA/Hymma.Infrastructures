@@ -17,6 +17,7 @@
             if (value < 0)
                 throw new System.Exception("Mass cannot be negative");
         }
+
         /// <summary>
         /// make mass calss with kilogram as unit
         /// </summary>
@@ -56,6 +57,33 @@
         }
         #endregion
 
+        #region static constructors
+        
+        /// <summary>
+        /// create a mass object form value and unit 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public static Mass Of(double value, IUnitOfMass unit) 
+        {
+            return new Mass(value, unit);
+        }
+
+        /// <summary>
+        /// create a mass object in Kg units
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Mass Of(double value)
+        {
+            return Mass.Of(value, Units.Mass.Kg);
+        }
+
+        #endregion
+
+        #region methods
+
         /// <summary>
         /// Get value along with its unit
         /// </summary>
@@ -64,5 +92,7 @@
         {
             return Measurement.ToString("G2") + $" {Unit.Id}";
         }
+        #endregion
+
     }
 }

@@ -5,6 +5,8 @@
     /// </summary>
     public class Length : UnitConverter<IUnitOfLength>
     {
+        #region constructors
+
         /// <summary>
         /// construct a Length and define units
         /// </summary>
@@ -63,7 +65,32 @@
                     break;
             }
         }
+        #endregion
 
+        #region static constructors
+        /// <summary>
+        /// return new length object based on the value and unit
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="unitOfLength"></param>
+        /// <returns></returns>
+        public static Length Of(double value, IUnitOfLength unitOfLength)
+        {
+            return new Length(value, unitOfLength);
+        }
+
+        /// <summary>
+        /// return a new length object in meters
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Length Of(double value)
+        {
+            return new Length(value);
+        }
+        #endregion
+
+        #region methods
         /// <summary>
         /// get the value and its unit
         /// </summary>
@@ -72,5 +99,6 @@
         {
             return Measurement.ToString("G2") + $" {Unit.Id}";
         }
+        #endregion
     }
 }

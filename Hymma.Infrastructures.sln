@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{E6166D13-7728-45F6-9553-0E1154A2FD8C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Net", "Hymma.Net\Hymma.Net.csproj", "{7C5E2AD8-D0A7-4A9C-844F-425EE01CE461}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Units", "Hymma.Units\Hymma.Units.csproj", "{77116F95-6EE7-43AC-9747-055B9195144F}"
@@ -18,16 +16,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.Mechanical", "Hymma.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.CADWorks", "Hymma.CADWorks\Hymma.CADWorks.csproj", "{96BD15F0-0AF7-4791-8214-2E720E5398CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{E6166D13-7728-45F6-9553-0E1154A2FD8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C5E2AD8-D0A7-4A9C-844F-425EE01CE461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C5E2AD8-D0A7-4A9C-844F-425EE01CE461}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5E2AD8-D0A7-4A9C-844F-425EE01CE461}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BD15F0-0AF7-4791-8214-2E720E5398CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Units\Units.cs" />
     <Compile Include="Entities\Density.cs" />
     <Compile Include="Entities\Length.cs" />
     <Compile Include="Entities\Mass.cs" />
@@ -58,12 +59,12 @@
     <Compile Include="Core\IUnitOfMass.cs" />
     <Compile Include="Core\IUnitOfMeasure.cs" />
     <Compile Include="Core\IUnitOfVolume.cs" />
-    <Compile Include="Core\LengthUnits.cs" />
-    <Compile Include="Core\MassUnits.cs" />
+    <Compile Include="Units\LengthUnits.cs" />
+    <Compile Include="Units\MassUnits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\UnitConverter.cs" />
     <Compile Include="Entities\Volume.cs" />
-    <Compile Include="Core\VolumeUnits.cs" />
+    <Compile Include="Units\VolumeUnits.cs" />
     <Compile Include="Tools\Physics.cs" />
   </ItemGroup>
   <ItemGroup>

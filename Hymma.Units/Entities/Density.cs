@@ -16,6 +16,19 @@
             this.Volume = volume;
         }
 
+        #region static constructor
+        /// <summary>
+        /// createa density based on the mass and volume
+        /// </summary>
+        /// <param name="mass">mass of the object</param>
+        /// <param name="volume">volume of the object</param>
+        /// <returns></returns>
+        public static Density Of(Mass mass, Volume volume)
+        {
+            return new Density(mass, volume);
+        }
+
+        #endregion
         /// <summary>
         /// get the mass property of this density
         /// </summary>
