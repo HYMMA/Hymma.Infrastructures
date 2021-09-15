@@ -5,6 +5,8 @@
     /// </summary>
     public class Density
     {
+        #region constructors
+
         /// <summary>
         /// default constructor
         /// </summary>
@@ -15,6 +17,7 @@
             this.Mass = mass;
             this.Volume = volume;
         }
+        #endregion
 
         #region static constructor
         /// <summary>
@@ -29,6 +32,9 @@
         }
 
         #endregion
+
+        #region properties
+
         /// <summary>
         /// get the mass property of this density
         /// </summary>
@@ -48,14 +54,7 @@
         /// returns unit of this density
         /// </summary>
         public string Unit => Mass.Unit.Id + "/" + Volume.Unit.Id;
+        #endregion
 
-        /// <summary>
-        /// get value along with unit of density
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Value.ToString("G2") + " " + Unit;
-        }
     }
 }

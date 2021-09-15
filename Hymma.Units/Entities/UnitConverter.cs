@@ -54,5 +54,21 @@
         /// Actual value of this <see cref="IUnitOfMeasure"/>
         /// </summary>
         public double Measurement { get; set; }
+
+        /// <summary>
+        /// Get value along with its unit
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Measurement.ToString("G2") + $" {Unit.Id}";
+        }
+
+        /// <summary>
+        /// identifier of this object
+        /// </summary>
+        /// <remarks>this is useful to use in databases</remarks>
+        /// <value>this.ToString()</value>
+        public string Id => ToString();
     }
 }
