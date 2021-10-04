@@ -30,6 +30,19 @@ namespace Hymma.Mechanical
         /// <summary>
         /// <see cref="Mass"/> of this material
         /// </summary>
-        public Density Density{get;set;}
+        public Density Density { get; set; }
+
+        /// <summary>
+        /// identifier 
+        /// </summary>
+        /// <remarks>it's usefule in databases</remarks>
+        /// <value>NickName followed by Standard</value>
+        public string Id=> Standard == "" ? NickName : NickName + "_" + Standard;
+
+        /// <summary>
+        /// NickName followed by Standard
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString() => Id;
     }
 }

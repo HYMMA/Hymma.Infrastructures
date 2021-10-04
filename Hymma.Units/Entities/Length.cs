@@ -91,14 +91,7 @@
         #endregion
 
         #region methods
-        /// <summary>
-        /// get the value and its unit
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Measurement.ToString("G2") + $" {Unit.Id}";
-        }
+
         #endregion
     }
 }

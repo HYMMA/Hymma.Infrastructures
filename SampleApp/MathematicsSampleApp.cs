@@ -62,9 +62,9 @@ namespace SampleApp
             Console.WriteLine($"density new value is {density}"); //density value reflects updates in units
 
             //using static constructors
-            var massofTon =Mass.Of(50, Units.Mass.ton);
-            massofTon.Unit = Units.Mass.gr;
-            
+            var mass2 =Mass.Of(50, Units.Mass.ton);
+            mass2.Unit = Units.Mass.gr;
+            Console.WriteLine(mass2);
         }
     }
 }

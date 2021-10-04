@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package>
+<package >
   <metadata>
-    <id>Hymma.Units</id>
-    <version>1.0.7</version>
-    <title>Hymma.Units</title>
+    <id>Hymma.Mechanical</id>
+    <version>1.0.3</version>
+    <title>Hymma.Mechanical</title>
     <authors>HYMMA</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Units</projectUrl>
+    <projectUrl>https://github.com/HYMMA/Hymma.Infrastructures/tree/master/Hymma.Mechanical</projectUrl>
     <icon>images\icon.jpg</icon>
-    <description>This is a unit converter designed to convert multiple units of measurement to each other. Some of the units covered are kg, gr, mile, km, meter, mm ...</description>
-    <releaseNotes>support for static constructors</releaseNotes>
+    <description>This is a library for mechancial and general purpose engineering.</description>
+    <releaseNotes>Initial release</releaseNotes>
     <copyright>$copyright$</copyright>
-    <tags>Physics Units Convertor</tags>
+    <tags>Physics Mechanical Engineering</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.5"/>
+      <group>
+        <dependency id="Hymma.Units" version="1.0.7" />
+    </group>
     </dependencies>
   </metadata>
   <files>
