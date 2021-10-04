@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.CADWorks", "Hymma.CAD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{E6166D13-7728-45F6-9553-0E1154A2FD8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hymma.ERP", "Hymma.ERP\Hymma.ERP.csproj", "{755DEDD8-8253-48DB-B2C1-4FCF6AC50249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6166D13-7728-45F6-9553-0E1154A2FD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755DEDD8-8253-48DB-B2C1-4FCF6AC50249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755DEDD8-8253-48DB-B2C1-4FCF6AC50249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755DEDD8-8253-48DB-B2C1-4FCF6AC50249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755DEDD8-8253-48DB-B2C1-4FCF6AC50249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

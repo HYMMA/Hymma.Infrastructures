@@ -54,7 +54,8 @@ namespace Hymma.CADWorks.Geometry.Core
 
         public Func<double, double> Equation => (x) =>
         {
-            var a=Coord2.Y-Coord1.Y
+            var a = Coord2.Y - Coord1.Y;
+            return a;
         };
         public double Length => Math.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY + DeltaZ + DeltaZ);
     }
